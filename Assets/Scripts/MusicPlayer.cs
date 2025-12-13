@@ -112,7 +112,7 @@ public class MusicPlayer : MonoBehaviour
         }
     }
 
-    private class Note
+    private struct Note
     {
         public AudioClip clip;
         public float time;
