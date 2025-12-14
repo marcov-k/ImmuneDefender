@@ -15,7 +15,8 @@ public class MusicPlayer : MonoBehaviour
     Regex trackRegex;
     readonly List<List<Note>> trackNotes = new();
     public float musicSpeed = 90.0f;
-    public float musicVolume = 1.0f;
+    public float volumeMult = 1.0f;
+    float musicVolume = 1.0f;
 
     void Start()
     {
@@ -25,16 +26,18 @@ public class MusicPlayer : MonoBehaviour
         StartPlayers();
     }
 
+    void Update()
+    {
+        musicVolume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
+    }
+
     void AddAudioSources()
     {
         for (int i = 0; i < tracks.Count; i++)
         {
-            if (audioSources.Count < i + 1)
-            {
-                audioSources.Add(gameObject.AddComponent<AudioSource>());
-                audioSources[i].playOnAwake = false;
-                audioSources[i].Stop();
-            }
+            audioSources.Add(gameObject.AddComponent<AudioSource>());
+            audioSources[i].playOnAwake = false;
+            audioSources[i].Stop();
         }
     }
 
