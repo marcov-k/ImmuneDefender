@@ -42,4 +42,9 @@ public class LevelSelect : MonoBehaviour
         string name = "Level" + index;
         SceneManager.LoadScene(name);
     }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
