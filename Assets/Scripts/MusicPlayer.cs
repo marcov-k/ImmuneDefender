@@ -8,8 +8,9 @@ using System.Collections;
 public class MusicPlayer : MonoBehaviour
 {
     [SerializeField] List<string> tracks = new();
-    [SerializeField] SerializedDictionary<string, AudioClip> notesDict = new();
-    [SerializeField] SerializedDictionary<string, float> dynDict = new();
+    [SerializeField] List<AudioClip> clips = new();
+    readonly Dictionary<string, AudioClip> notesDict = new();
+    readonly Dictionary<string, float> dynDict = new();
     readonly List<AudioSource> audioSources = new();
     const string trackRegexString = @"(?:\[\((?<note>(?:[A-Z]#?b?[0-9][A-Z])?),(?<time>[0-9\.]*),(?<dyn>[a-z]*)\)\](?<rep>[0-9]*))+?";
     Regex trackRegex;
@@ -21,6 +22,7 @@ public class MusicPlayer : MonoBehaviour
     void Start()
     {
         trackRegex = new(trackRegexString);
+        PrepareDicts();
         AddAudioSources();
         PrepareTracks();
         StartPlayers();
@@ -29,6 +31,14 @@ public class MusicPlayer : MonoBehaviour
     void Update()
     {
         musicVolume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
+    }
+
+    void PrepareDicts()
+    {
+        foreach (var clip in clips)
+        {
+            notesDict.Add(clip.name, clip);
+        }
     }
 
     void AddAudioSources()
