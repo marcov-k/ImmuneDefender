@@ -6,10 +6,12 @@ public class Settings : MonoBehaviour
 {
     [SerializeField] GameObject settingsCont;
     [SerializeField] Slider[] volumeSliders; // in the order: master, music, effects
+    public static bool open = false;
 
     void Start()
     {
         InitializeSliders();
+        open = false;
         settingsCont.SetActive(false);
     }
 
@@ -23,11 +25,13 @@ public class Settings : MonoBehaviour
     public void ShowSettings()
     {
         settingsCont.SetActive(true);
+        open = true;
     }
 
     public void HideSettings()
     {
         settingsCont.SetActive(false);
+        open = false;
     }
 
     public void VolumeChanged(int index)

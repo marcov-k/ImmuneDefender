@@ -39,8 +39,8 @@ public class LevelSelect : MonoBehaviour
 
     public void LoadLevel(int index)
     {
-        string name = "Level" + index;
-        SceneManager.LoadScene(name);
+        PlayerData.startedLevel = index;
+        SceneManager.LoadScene("Loading");
     }
 
     public void LoadMainMenu()
