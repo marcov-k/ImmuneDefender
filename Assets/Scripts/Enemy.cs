@@ -10,11 +10,15 @@ public class Enemy : MonoBehaviour
     public int2 lastPos;
     public LevelManager manager;
     public float damage;
+    public float health;
     public float speed;
+    public float score;
     float moveDelay;
+    float moveTime;
     public string moveLogicName;
     MoveLogic moveLogic;
     System.Random random;
+    Player player;
 
     void Start()
     {
@@ -25,8 +29,10 @@ public class Enemy : MonoBehaviour
     void InitValues()
     {
         moveDelay = 1.0f / speed;
+        moveTime = moveDelay / 2.0f;
         moveLogic = MoveCont.GetMoveLogic(moveLogicName);
         random = new();
+        player = FindFirstObjectByType<Player>();
     }
 
     IEnumerator MoveCoroutine()
@@ -37,7 +43,8 @@ public class Enemy : MonoBehaviour
 
             if (pos.x == manager.positions.GetLength(0) - 1)
             {
-                Attack();
+                StartCoroutine(Attack());
+                break;
             }
             else
             {
@@ -58,12 +65,16 @@ public class Enemy : MonoBehaviour
                 transform.position = manager.positions[pos.x, pos.y].positionTrans.position;
 
                 float time = 0.0f;
-                float moveTime = moveDelay / 2.0f;
+                var prevPos = manager.positions[lastPos.x, lastPos.y].positionTrans.position;
+                var nextPos = manager.positions[pos.x, pos.y].positionTrans.position;
                 while (time < moveTime)
                 {
+                    while (PauseMenu.paused)
+                    {
+                        yield return new WaitForEndOfFrame();
+                    }
+
                     time += Time.deltaTime;
-                    var prevPos = manager.positions[lastPos.x, lastPos.y].positionTrans.position;
-                    var nextPos = manager.positions[pos.x, pos.y].positionTrans.position;
                     var stepPos = Vector2.Lerp(prevPos, nextPos, time / moveTime);
                     transform.position = stepPos;
                     yield return new WaitForEndOfFrame();
@@ -83,6 +94,7 @@ public class Enemy : MonoBehaviour
                 openPoses.Add(option);
             }
         }
+
         if (openPoses.Count > 1)
         {
             foreach (var pos in openPoses.ToList())
@@ -96,10 +108,46 @@ public class Enemy : MonoBehaviour
         return openPoses;
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
-        Debug.Log("Attacked");
         manager.positions[pos.x, pos.y].filled = 0;
-        Destroy(gameObject);
+        if (player != null)
+        {
+            float time = 0.0f;
+            var prevPos = manager.positions[pos.x, pos.y].positionTrans.position;
+            while (time < moveTime)
+            {
+                while (PauseMenu.paused)
+                {
+                    yield return new WaitForEndOfFrame();
+                }
+
+                time += Time.deltaTime;
+                var nextPos = player.transform.position;
+                var stepPos = Vector2.Lerp(prevPos, nextPos, time / moveTime);
+                transform.position = stepPos;
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        else gameObject.SetActive(false);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            manager.EnemyKilled(this);
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 7 && player != null)
+        {
+            player.TakeDamage(damage);
+            gameObject.SetActive(false);
+        }
     }
 }

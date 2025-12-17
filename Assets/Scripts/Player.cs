@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     float4 bounds; // left, top, bottom, right
     float2 dims;
     public float health = 20.0f;
+    LevelManager manager;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
 
     void InitValues()
     {
+        manager = FindFirstObjectByType<LevelManager>();
         float3 margins = new(padding.x * Screen.width, padding.y * Screen.height, padding.z * Screen.height);
         float4 edges = new(margins.x, Screen.height - margins.y, margins.z, Screen.width - margins.x); // left, top, bottom, right
         bounds = new(Camera.main.ScreenToWorldPoint(new(edges.x, 0)).x, Camera.main.ScreenToWorldPoint(new(0, edges.y)).y,
@@ -57,5 +59,15 @@ public class Player : MonoBehaviour
     public void OnMove(InputValue input)
     {
         move = input.Get<Vector2>();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            manager.PlayerKilled();
+            Destroy(gameObject);
+        }
     }
 }

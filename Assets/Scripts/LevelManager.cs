@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using Unity.Mathematics;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -8,12 +10,26 @@ public class LevelManager : MonoBehaviour
     [SerializeField] int2 gridDims = new(10, 10);
     [SerializeField] float3 padding = new(20, 20, 100); // left/right, top, bottom
     [SerializeField] GameObject posPrefab;
+    [SerializeField] EndScreen endScreen;
     public Position[,] positions;
+    float totalScore;
+    readonly List<Enemy> killedEnemies = new();
+    PauseMenu pauseMenu;
 
     void Start()
     {
+        InitValues();
         CreatePositions();
         StartCoroutine(SpawnCoroutine());
+    }
+
+    void InitValues()
+    {
+        foreach (var enemy in levelData.enemies)
+        {
+            totalScore += enemy.enemy.GetComponent<Enemy>().score;
+        }
+        pauseMenu = FindFirstObjectByType<PauseMenu>();
     }
 
     void CreatePositions()
@@ -51,6 +67,40 @@ public class LevelManager : MonoBehaviour
             enemyScript.manager = this;
             positions[0, 0].filled = 1;
         }
+    }
+
+    void ShowEndScreen(bool won)
+    {
+        pauseMenu.PermPause(true);
+        float score = 0.0f;
+        foreach (var enemy in killedEnemies)
+        {
+            score += enemy.score;
+        }
+        float relScore = score / totalScore;
+        int stars = Mathf.RoundToInt(relScore * 3.0f);
+        endScreen.ShowResults(won, stars, score, totalScore);
+    }
+
+    public void PlayerKilled()
+    {
+        ShowEndScreen(false);
+    }
+
+    public void EnemyKilled(Enemy enemy)
+    {
+        killedEnemies.Add(enemy);
+    }
+
+    public void BossKilled()
+    {
+
+    }
+
+    public void Continue()
+    {
+        pauseMenu.PermPause(false);
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public struct Position

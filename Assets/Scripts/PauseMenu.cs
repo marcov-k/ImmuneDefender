@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject background;
     public static bool paused = false;
+    static bool permPause = false;
     Settings settings;
 
     void Awake()
@@ -22,7 +23,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnPause()
     {
-        if (!Settings.open)
+        if (!Settings.open && !permPause)
         {
             paused = !paused;
             background.SetActive(paused);
@@ -33,12 +34,20 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        if (!Settings.open)
+        if (!Settings.open && !permPause)
         {
             paused = false;
             background.SetActive(false);
             Time.timeScale = 1;
         }
+    }
+
+    public void PermPause(bool pause)
+    {
+        permPause = pause;
+        paused = permPause;
+        if (permPause) Time.timeScale = 0.0f;
+        else Time.timeScale = 1.0f;
     }
 
     public void LoadMainMenu()
