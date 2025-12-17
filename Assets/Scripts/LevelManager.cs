@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] int2 gridDims = new(10, 10);
     [SerializeField] float3 padding = new(20, 20, 100); // left/right, top, bottom
     [SerializeField] GameObject posPrefab;
-    Position[,] positions;
+    public Position[,] positions;
 
     void Start()
     {
@@ -23,13 +23,13 @@ public class LevelManager : MonoBehaviour
         var width = Screen.width;
         var height = Screen.height;
         float4 edges = new(padding.x, height - padding.y, padding.z, width - padding.x); // left, top, bottom, right
-        float xStep = (edges.w - edges.x) / (gridDims.x - 1);
-        float yStep = (edges.y - edges.z) / (gridDims.y - 1);
+        float xStep = (edges.w - edges.x) / (gridDims.x + 1);
+        float yStep = (edges.y - edges.z) / (gridDims.y + 1);
         for (int i = 0; i < gridDims.y; i++)
         {
             for (int j = 0; j < gridDims.x; j++)
             {
-                Vector2 pos = Camera.main.ScreenToWorldPoint(new(edges.x + j * xStep, edges.y - i * yStep));
+                Vector2 pos = Camera.main.ScreenToWorldPoint(new(edges.x + (j + 1) * xStep, edges.y - (i + 1) * yStep));
                 var newPos = Instantiate(posPrefab, pos, Quaternion.identity);
                 positions[i, j].positionTrans = newPos.transform;
             }
@@ -48,6 +48,8 @@ public class LevelManager : MonoBehaviour
             var enemy = Instantiate(levelData.enemies[i].enemy, positions[0, 0].positionTrans.position, Quaternion.identity);
             var enemyScript = enemy.GetComponent<Enemy>();
             enemyScript.pos = new(0, 0);
+            enemyScript.manager = this;
+            positions[0, 0].filled = 1;
         }
     }
 
