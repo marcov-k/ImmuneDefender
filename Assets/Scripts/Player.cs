@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     float2 dims;
     public float health = 20.0f;
     LevelManager manager;
+    [SerializeField] Shooter[] shooters;
 
     void Start()
     {
@@ -33,6 +34,12 @@ public class Player : MonoBehaviour
 
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         dims = new(renderer.bounds.extents.x, renderer.bounds.extents.y);
+
+        shooters[0].active = true;
+        for (int i = 1; i < shooters.Length; i++)
+        {
+            shooters[i].active = false;
+        }
     }
 
     void Move()
