@@ -23,7 +23,7 @@ public class Shooter : MonoBehaviour
                 float shotAngle = transform.rotation.eulerAngles.z;
                 float minAngle = shotAngle - spreadAngle / 2.0f;
                 float maxAngle = shotAngle + spreadAngle / 2.0f;
-                float angleStep = spreadAngle / (shotCount + 1.0f);
+                float angleStep = spreadAngle / (shotCount + 1);
 
                 for (int i = 0; i < shotCount; i++)
                 {

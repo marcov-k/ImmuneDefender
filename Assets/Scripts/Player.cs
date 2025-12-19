@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,10 +15,14 @@ public class Player : MonoBehaviour
     LevelManager manager;
     [SerializeField] Shooter[] shooters;
     int defences;
+    int selectedDef;
+    Shooter[] availableDefs;
+    DefIndicator defenceIndicator;
 
     void Start()
     {
         InitValues();
+        StartCoroutine(InitDefenceIndicator());
     }
 
     void Update()
@@ -28,6 +33,8 @@ public class Player : MonoBehaviour
     void InitValues()
     {
         manager = FindFirstObjectByType<LevelManager>();
+        defenceIndicator = FindFirstObjectByType<DefIndicator>();
+
         float3 margins = new(padding.x * Screen.width, padding.y * Screen.height, padding.z * Screen.height);
         float4 edges = new(margins.x, Screen.height - margins.y, margins.z, Screen.width - margins.x); // left, top, bottom, right
         bounds = new(Camera.main.ScreenToWorldPoint(new(edges.x, 0)).x, Camera.main.ScreenToWorldPoint(new(0, edges.y)).y,
@@ -41,7 +48,14 @@ public class Player : MonoBehaviour
         {
             shooters[i].active = false;
         }
-        defences = manager.GetDefencesUnlocked();
+        defences = manager.GetDefencesUnlocked() - 1;
+        selectedDef = 0;
+        availableDefs = new Shooter[defences + 1];
+        for (int i = 0; i < availableDefs.Length; i++)
+        {
+            availableDefs[i] = shooters[i];
+        }
+        defenceIndicator.InitIndicator(defences);
     }
 
     void Move()
@@ -65,9 +79,45 @@ public class Player : MonoBehaviour
         }
     }
 
+    void UpdateDefence(float input)
+    {
+        if (input != 0)
+        {
+            availableDefs[selectedDef].active = false;
+            if (input < 0)
+            {
+                if (selectedDef < defences) selectedDef++;
+                else selectedDef = 0;
+            }
+            else if (input > 0)
+            {
+                if (selectedDef > 0) selectedDef--;
+                else selectedDef = defences;
+            }
+            availableDefs[selectedDef].active = true;
+            UpdateDefenceIndicator();
+        }
+    }
+
+    IEnumerator InitDefenceIndicator()
+    {
+        yield return new WaitForEndOfFrame();
+        UpdateDefenceIndicator();
+    }
+
+    void UpdateDefenceIndicator()
+    {
+        defenceIndicator.UpdateIndicator(selectedDef);
+    }
+
     public void OnMove(InputValue input)
     {
         move = input.Get<Vector2>();
+    }
+
+    public void OnChangeDef(InputValue input)
+    {
+        UpdateDefence(input.Get<float>());
     }
 
     public void TakeDamage(float damage)
