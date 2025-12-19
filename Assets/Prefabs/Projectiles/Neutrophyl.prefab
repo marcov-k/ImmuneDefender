@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5062756746000066686}
   - component: {fileID: 4763873159466794910}
   m_Layer: 8
-  m_Name: Antibody
+  m_Name: Neutrophyl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,13 +102,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd60e40118a42248ace2da407430499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projName: antibody
-  speed: 10
-  damage: 10
+  projName: neutrophyl
+  speed: 20
+  damage: 5
   piercing: 0
   area: 0
   areaDamageInterval: 0
-  range: 10
+  range: 15
 --- !u!50 &5062756746000066686
 Rigidbody2D:
   serializedVersion: 5

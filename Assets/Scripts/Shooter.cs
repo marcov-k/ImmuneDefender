@@ -20,14 +20,14 @@ public class Shooter : MonoBehaviour
             }
             else
             {
-                float minAngle = transform.rotation.eulerAngles.z - spreadAngle;
-                float maxAngle = transform.rotation.eulerAngles.z + spreadAngle;
-                float angleDiff = spreadAngle * 2.0f;
-                float angleStep = angleDiff / (shotCount + 1.0f);
+                float shotAngle = transform.rotation.eulerAngles.z;
+                float minAngle = shotAngle - spreadAngle / 2.0f;
+                float maxAngle = shotAngle + spreadAngle / 2.0f;
+                float angleStep = spreadAngle / (shotCount + 1.0f);
 
                 for (int i = 0; i < shotCount; i++)
                 {
-                    float angle = minAngle + angleDiff * (i + 1);
+                    float angle = minAngle + angleStep * (i + 1);
                     Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0, 0, angle));
                 }
             }
@@ -41,7 +41,7 @@ public class Shooter : MonoBehaviour
         onCooldown = false;
     }
 
-    public void OnFire()
+    public void OnAttack()
     {
         if (active) Shoot();
     }

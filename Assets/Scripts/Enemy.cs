@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
     MoveLogic moveLogic;
     System.Random random;
     Player player;
+    [SerializeField] List<string> resists = new();
+    public bool disableResist = false;
 
     void Start()
     {
@@ -132,8 +134,12 @@ public class Enemy : MonoBehaviour
         else gameObject.SetActive(false);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string projName)
     {
+        if (resists.Contains(projName) && !disableResist)
+        {
+            damage *= 0.5f;
+        }
         health -= damage;
         if (health <= 0)
         {

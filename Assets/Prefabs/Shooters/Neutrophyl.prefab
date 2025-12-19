@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6526266041452630865}
   - component: {fileID: 7469725811130986887}
   m_Layer: 0
-  m_Name: Antibody
+  m_Name: Neutrophyl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224cf4d1b9cf6654097d8ccbe0292bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4044858525666831532, guid: b8700856b550d4f4d80219a4d8fb6f85, type: 3}
+  projectilePrefab: {fileID: 4044858525666831532, guid: 5a2efd565474c3a44882c01664bfda57, type: 3}
   shotCount: 1
   spreadAngle: 0
-  cooldown: 0.5
+  cooldown: 0.25
   active: 0

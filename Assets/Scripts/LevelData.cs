@@ -5,6 +5,7 @@ using System;
 public class LevelData : ScriptableObject
 {
     public EnemyData[] enemies;
+    public int defencesUnlocked;
 
     [Serializable]
     public struct EnemyData

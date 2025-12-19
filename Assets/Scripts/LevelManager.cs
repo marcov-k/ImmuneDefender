@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.Mathematics;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using static PlayerData;
 
 public class LevelManager : MonoBehaviour
 {
@@ -72,6 +73,13 @@ public class LevelManager : MonoBehaviour
     void ShowEndScreen(bool won)
     {
         pauseMenu.PermPause(true);
+
+        if (won && startedLevel > lastLevel)
+        {
+            lastLevel = startedLevel;
+        }
+        startedLevel = 0;
+
         float score = 0.0f;
         foreach (var enemy in killedEnemies)
         {
@@ -90,6 +98,10 @@ public class LevelManager : MonoBehaviour
     public void EnemyKilled(Enemy enemy)
     {
         killedEnemies.Add(enemy);
+        if (killedEnemies.Count == levelData.enemies.Length)
+        {
+            ShowEndScreen(true);
+        }
     }
 
     public void BossKilled()
@@ -101,6 +113,11 @@ public class LevelManager : MonoBehaviour
     {
         pauseMenu.PermPause(false);
         SceneManager.LoadScene("LevelSelect");
+    }
+
+    public int GetDefencesUnlocked()
+    {
+        return levelData.defencesUnlocked;
     }
 
     public struct Position

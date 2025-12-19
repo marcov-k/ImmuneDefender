@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float health = 20.0f;
     LevelManager manager;
     [SerializeField] Shooter[] shooters;
+    int defences;
 
     void Start()
     {
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
         {
             shooters[i].active = false;
         }
+        defences = manager.GetDefencesUnlocked();
     }
 
     void Move()
