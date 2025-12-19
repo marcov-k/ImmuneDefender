@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public float health;
     public float speed;
     public float score;
+    [SerializeField] bool boss = false;
     float moveDelay;
     float moveTime;
     public string moveLogicName;
@@ -143,7 +144,9 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            manager.EnemyKilled(this);
+            if (boss) manager.BossKilled(this);
+            else manager.EnemyKilled(this);
+
             gameObject.SetActive(false);
         }
     }

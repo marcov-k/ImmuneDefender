@@ -519,7 +519,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4402716606191107712, guid: 4d8ab0a11ece8764da1ae67f4c1db99f, type: 3}
       propertyPath: m_Name
-      value: Neutrophyl
+      value: Neutrophil
       objectReference: {fileID: 0}
     - target: {fileID: 6526266041452630865, guid: 4d8ab0a11ece8764da1ae67f4c1db99f, type: 3}
       propertyPath: m_LocalPosition.x

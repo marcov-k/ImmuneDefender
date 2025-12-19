@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5062756746000066686}
   - component: {fileID: 4763873159466794910}
   m_Layer: 8
-  m_Name: Neutrophyl
+  m_Name: Neutrophil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd60e40118a42248ace2da407430499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projName: neutrophyl
+  projName: neutrophil
   speed: 20
   damage: 5
   piercing: 0

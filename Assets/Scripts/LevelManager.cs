@@ -12,6 +12,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] float3 padding = new(20, 20, 100); // left/right, top, bottom
     [SerializeField] GameObject posPrefab;
     [SerializeField] EndScreen endScreen;
+    [SerializeField] float backgroundSpeed;
+    [SerializeField] GameObject[] backgrounds;
+    int followBackground = 1;
+    float2 screenEdges; // x = bottom, y = top
+    float backgroundHeight;
     public Position[,] positions;
     float totalScore;
     readonly List<Enemy> killedEnemies = new();
@@ -24,6 +29,11 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(SpawnCoroutine());
     }
 
+    void Update()
+    {
+        ScrollBackground();
+    }
+
     void InitValues()
     {
         foreach (var enemy in levelData.enemies)
@@ -31,6 +41,12 @@ public class LevelManager : MonoBehaviour
             totalScore += enemy.enemy.GetComponent<Enemy>().score;
         }
         pauseMenu = FindFirstObjectByType<PauseMenu>();
+
+        float screenBottom = Camera.main.ScreenToWorldPoint(new(0, 0)).y;
+        float screenTop = Camera.main.ScreenToWorldPoint(new(0, Screen.height)).y;
+        screenEdges = new(screenBottom, screenTop);
+        backgroundHeight = backgrounds[0].GetComponent<SpriteRenderer>().bounds.extents.y;
+        backgrounds[1].transform.position = new(backgrounds[1].transform.position.x, backgrounds[0].transform.position.y + 2.0f * backgroundHeight);
     }
 
     void CreatePositions()
@@ -70,6 +86,30 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void ScrollBackground()
+    {
+        if (followBackground == 1)
+        {
+            backgrounds[0].transform.position = new(backgrounds[0].transform.position.x, backgrounds[0].transform.position.y - backgroundSpeed * Time.deltaTime);
+            backgrounds[1].transform.position = new(backgrounds[1].transform.position.x, backgrounds[0].transform.position.y + 2.0f * backgroundHeight);
+            if (backgrounds[0].transform.position.y + backgroundHeight <= screenEdges.x)
+            {
+                backgrounds[0].transform.position = new(backgrounds[0].transform.position.x, screenEdges.y + backgroundHeight);
+                followBackground = 0;
+            }
+        }
+        else
+        {
+            backgrounds[1].transform.position = new(backgrounds[0].transform.position.x, backgrounds[1].transform.position.y - backgroundSpeed * Time.deltaTime);
+            backgrounds[0].transform.position = new(backgrounds[0].transform.position.x, backgrounds[1].transform.position.y + 2.0f * backgroundHeight);
+            if (backgrounds[1].transform.position.y + backgroundHeight <= screenEdges.x)
+            {
+                backgrounds[1].transform.position = new(backgrounds[1].transform.position.x, screenEdges.y + backgroundHeight);
+                followBackground = 1;
+            }
+        }
+    }
+
     void ShowEndScreen(bool won)
     {
         pauseMenu.PermPause(true);
@@ -104,9 +144,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void BossKilled()
+    public void BossKilled(Enemy enemy)
     {
-
+        killedEnemies.Add(enemy);
+        ShowEndScreen(true);
     }
 
     public void Continue()
