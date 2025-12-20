@@ -58,7 +58,7 @@ public class Projectile : MonoBehaviour
             }
             else if (piercing)
             {
-                enemy.disableResist = true;
+                enemy.ApplyCytokine();
             }
             else
             {

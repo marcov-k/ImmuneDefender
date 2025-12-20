@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class DefIndicator : MonoBehaviour
 {
@@ -11,10 +12,11 @@ public class DefIndicator : MonoBehaviour
     [SerializeField] float fadeOpacity = 0.5f;
     int defence;
 
-    public void InitIndicator(int totalDefs)
+    public void InitIndicator(int totalDefs, List<Sprite> defIcons)
     {
         for (int i = 0; i < icons.Length; i++)
         {
+            icons[i].sprite = defIcons[i];
             if (i <= totalDefs)
             {
                 icons[i].color = new(icons[i].color.r, icons[i].color.g, icons[i].color.b, fadeOpacity);

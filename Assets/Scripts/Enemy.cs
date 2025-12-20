@@ -21,7 +21,8 @@ public class Enemy : MonoBehaviour
     System.Random random;
     Player player;
     [SerializeField] List<string> resists = new();
-    public bool disableResist = false;
+    bool disableResist = false;
+    [SerializeField] ParticleSystem cytokineEm;
 
     void Start()
     {
@@ -152,10 +153,19 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             manager.positions[pos.x, pos.y].filled = 0;
-            if (boss) manager.BossKilled(this);
-            else manager.EnemyKilled(this);
+            if (boss) manager.BossKilled(score);
+            else manager.EnemyKilled(score);
 
             gameObject.SetActive(false);
+        }
+    }
+
+    public void ApplyCytokine()
+    {
+        if (!disableResist)
+        {
+            disableResist = true;
+            cytokineEm.Play();
         }
     }
 

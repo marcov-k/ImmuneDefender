@@ -17,4 +17,4 @@ MonoBehaviour:
     spawnDelay: 0
   - enemy: {fileID: 301743323909848525, guid: 73532ac73e2c71d499761dbd29fb0664, type: 3}
     spawnDelay: 2
-  defencesUnlocked: 3
+  defencesUnlocked: 5

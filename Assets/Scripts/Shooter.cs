@@ -7,8 +7,19 @@ public class Shooter : MonoBehaviour
     [SerializeField] int shotCount;
     [SerializeField] float spreadAngle;
     [SerializeField] float cooldown;
+    public Sprite icon;
     bool onCooldown = false;
     public bool active;
+
+    void Awake()
+    {
+        InitValues();
+    }
+
+    void InitValues()
+    {
+        icon = projectilePrefab.GetComponent<SpriteRenderer>().sprite;
+    }
 
     void Shoot()
     {

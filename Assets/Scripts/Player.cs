@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class Player : MonoBehaviour
@@ -44,9 +45,11 @@ public class Player : MonoBehaviour
         dims = new(renderer.bounds.extents.x, renderer.bounds.extents.y);
 
         shooters[0].active = true;
+        List<Sprite> icons = new() { shooters[0].icon };
         for (int i = 1; i < shooters.Length; i++)
         {
             shooters[i].active = false;
+            icons.Add(shooters[i].icon);
         }
         defences = manager.GetDefencesUnlocked() - 1;
         selectedDef = 0;
@@ -55,7 +58,7 @@ public class Player : MonoBehaviour
         {
             availableDefs[i] = shooters[i];
         }
-        defenceIndicator.InitIndicator(defences);
+        defenceIndicator.InitIndicator(defences, icons);
     }
 
     void Move()

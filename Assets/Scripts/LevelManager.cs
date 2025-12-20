@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
     public Position[,] positions;
     public Position[] spawnPositions;
     float totalScore;
-    readonly List<Enemy> killedEnemies = new();
+    readonly List<float> killedEnemyScores = new();
     PauseMenu pauseMenu;
     System.Random random;
 
@@ -148,9 +148,9 @@ public class LevelManager : MonoBehaviour
         startedLevel = 0;
 
         float score = 0.0f;
-        foreach (var enemy in killedEnemies)
+        foreach (var enemyScore in killedEnemyScores)
         {
-            score += enemy.score;
+            score += enemyScore;
         }
         float relScore = score / totalScore;
         int stars = Mathf.RoundToInt(relScore * 3.0f);
@@ -162,18 +162,18 @@ public class LevelManager : MonoBehaviour
         ShowEndScreen(false);
     }
 
-    public void EnemyKilled(Enemy enemy)
+    public void EnemyKilled(float enemyScore)
     {
-        killedEnemies.Add(enemy);
-        if (killedEnemies.Count == levelData.enemies.Length)
+        killedEnemyScores.Add(enemyScore);
+        if (killedEnemyScores.Count == levelData.enemies.Length)
         {
             ShowEndScreen(true);
         }
     }
 
-    public void BossKilled(Enemy enemy)
+    public void BossKilled(float enemyScore)
     {
-        killedEnemies.Add(enemy);
+        killedEnemyScores.Add(enemyScore);
         ShowEndScreen(true);
     }
 
