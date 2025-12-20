@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
             else
             {
                 var options = moveLogic.FindNextPos(pos, manager.positions);
-                List<int2> openPoses = new();
+                List<int2> openPoses;
 
                 openPoses = FindOpenPoses(lastPos, options, manager);
 
@@ -61,14 +61,21 @@ public class Enemy : MonoBehaviour
                     yield return new WaitForEndOfFrame();
                     openPoses = FindOpenPoses(lastPos, options, manager);
                 }
-                manager.positions[pos.x, pos.y].filled = 0;
+
+                if (pos.x == -1) manager.spawnPositions[pos.y].filled = 0;
+                else manager.positions[pos.x, pos.y].filled = 0;
+
                 lastPos = pos;
                 pos = openPoses[random.Next(openPoses.Count)];
                 manager.positions[pos.x, pos.y].filled = 1;
                 transform.position = manager.positions[pos.x, pos.y].positionTrans.position;
 
                 float time = 0.0f;
-                var prevPos = manager.positions[lastPos.x, lastPos.y].positionTrans.position;
+                Vector2 prevPos;
+
+                if (lastPos.x == -1) prevPos = manager.spawnPositions[lastPos.y].positionTrans.position;
+                else prevPos = manager.positions[lastPos.x, lastPos.y].positionTrans.position;
+
                 var nextPos = manager.positions[pos.x, pos.y].positionTrans.position;
                 while (time < moveTime)
                 {

@@ -651,6 +651,9 @@ MonoBehaviour:
   backgrounds:
   - {fileID: 375278534}
   - {fileID: 776238880}
+  spawnPos:
+    positionTrans: {fileID: 0}
+    filled: 0
 --- !u!4 &1811486279
 Transform:
   m_ObjectHideFlags: 0

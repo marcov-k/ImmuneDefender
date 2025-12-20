@@ -18,9 +18,11 @@ public class LevelManager : MonoBehaviour
     float2 screenEdges; // x = bottom, y = top
     float backgroundHeight;
     public Position[,] positions;
+    public Position[] spawnPositions;
     float totalScore;
     readonly List<Enemy> killedEnemies = new();
     PauseMenu pauseMenu;
+    System.Random random;
 
     void Start()
     {
@@ -47,6 +49,7 @@ public class LevelManager : MonoBehaviour
         screenEdges = new(screenBottom, screenTop);
         backgroundHeight = backgrounds[0].GetComponent<SpriteRenderer>().bounds.extents.y;
         backgrounds[1].transform.position = new(backgrounds[1].transform.position.x, backgrounds[0].transform.position.y + 2.0f * backgroundHeight);
+        random = new();
     }
 
     void CreatePositions()
@@ -67,6 +70,15 @@ public class LevelManager : MonoBehaviour
                 positions[i, j].positionTrans = newPos.transform;
             }
         }
+
+        float top = Camera.main.ScreenToWorldPoint(new(0, Screen.height)).y + 3.0f;
+        spawnPositions = new Position[positions.GetLength(1)];
+        for (int i = 0; i < positions.GetLength(1); i++)
+        {
+            Vector2 pos = new(positions[0, i].positionTrans.position.x, top);
+            var newPos = Instantiate(posPrefab, pos, Quaternion.identity);
+            spawnPositions[i].positionTrans = newPos.transform;
+        }
     }
 
     IEnumerator SpawnCoroutine()
@@ -74,16 +86,31 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < levelData.enemies.Length; i++)
         {
             yield return new WaitForSeconds(levelData.enemies[i].spawnDelay);
-            while (positions[0, 0].filled != 0 || PauseMenu.paused)
+            int index = FindSpawn();
+            var spawnPos = spawnPositions[index];
+            while (spawnPos.filled != 0 || PauseMenu.paused)
             {
                 yield return new WaitForEndOfFrame();
             }
-            var enemy = Instantiate(levelData.enemies[i].enemy, positions[0, 0].positionTrans.position, Quaternion.identity);
+            var enemy = Instantiate(levelData.enemies[i].enemy, spawnPos.positionTrans.position, Quaternion.identity);
             var enemyScript = enemy.GetComponent<Enemy>();
-            enemyScript.pos = new(0, 0);
+            enemyScript.pos = new(-1, index);
             enemyScript.manager = this;
-            positions[0, 0].filled = 1;
+            spawnPositions[index].filled = 1;
         }
+    }
+
+    int FindSpawn()
+    {
+        List<int> options = new();
+        for (int i = 0; i < spawnPositions.Length; i++)
+        {
+            if (spawnPositions[i].filled == 0)
+            {
+                options.Add(i);
+            }
+        }
+        return random.Next(options.Count);
     }
 
     void ScrollBackground()
@@ -161,6 +188,7 @@ public class LevelManager : MonoBehaviour
         return levelData.defencesUnlocked;
     }
 
+    [System.Serializable]
     public struct Position
     {
         public Transform positionTrans;
