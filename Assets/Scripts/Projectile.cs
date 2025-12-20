@@ -15,9 +15,11 @@ public class Projectile : MonoBehaviour
     [SerializeField] float range;
     float distTraveled;
     readonly List<Enemy> damageEnemies = new();
+    float screenTop;
 
     void Start()
     {
+        InitValues();
         if (area)
         {
             StartCoroutine(AreaDamageCoroutine());
@@ -29,11 +31,18 @@ public class Projectile : MonoBehaviour
         Move();
     }
 
+    void InitValues()
+    {
+        var renderer = GetComponent<SpriteRenderer>();
+        screenTop = Camera.main.ScreenToWorldPoint(new(0, Screen.height)).y + renderer.bounds.extents.y;
+    }
+
     void Move()
     {
-        transform.position += speed * Time.deltaTime * transform.up;
-        distTraveled += speed * Time.deltaTime;
-        if (distTraveled >= range)
+        float move = speed * Time.deltaTime;
+        transform.position += move * transform.up;
+        distTraveled += move;
+        if (distTraveled >= range || transform.position.y >= screenTop)
         {
             Destroy(gameObject);
         }

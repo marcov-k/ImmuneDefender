@@ -642,18 +642,16 @@ MonoBehaviour:
     x: 10
     y: 5
   padding:
-    x: 0
+    x: 0.1
     y: 0
     z: 0.2
   posPrefab: {fileID: 2764503349555865341, guid: baac06a1987e7e445a5380416ba89f7c, type: 3}
   endScreen: {fileID: 1272159277}
-  backgroundSpeed: 5
+  backgroundSpeed: 4
   backgrounds:
   - {fileID: 375278534}
   - {fileID: 776238880}
-  spawnPos:
-    positionTrans: {fileID: 0}
-    filled: 0
+  spawnPositions: []
 --- !u!4 &1811486279
 Transform:
   m_ObjectHideFlags: 0

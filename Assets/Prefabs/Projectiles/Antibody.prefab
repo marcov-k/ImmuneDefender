@@ -108,7 +108,7 @@ MonoBehaviour:
   piercing: 0
   area: 0
   areaDamageInterval: 0
-  range: 10
+  range: 15
 --- !u!50 &5062756746000066686
 Rigidbody2D:
   serializedVersion: 5
