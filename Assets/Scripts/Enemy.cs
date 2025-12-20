@@ -151,6 +151,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            manager.positions[pos.x, pos.y].filled = 0;
             if (boss) manager.BossKilled(this);
             else manager.EnemyKilled(this);
 
