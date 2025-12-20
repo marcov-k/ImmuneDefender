@@ -140,7 +140,11 @@ public class Enemy : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
-        else gameObject.SetActive(false);
+        else
+        {
+            manager.EnemyKilled(0);
+            gameObject.SetActive(false);
+        }
     }
 
     public void TakeDamage(float damage, string projName)
@@ -174,6 +178,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.layer == 7 && player != null)
         {
             player.TakeDamage(damage);
+            manager.EnemyKilled(0);
             gameObject.SetActive(false);
         }
     }

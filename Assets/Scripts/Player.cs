@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     int selectedDef;
     Shooter[] availableDefs;
     DefIndicator defenceIndicator;
+    HealthBar healthBar;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
     {
         manager = FindFirstObjectByType<LevelManager>();
         defenceIndicator = FindFirstObjectByType<DefIndicator>();
+        healthBar = FindFirstObjectByType<HealthBar>();
 
         float3 margins = new(padding.x * Screen.width, padding.y * Screen.height, padding.z * Screen.height);
         float4 edges = new(margins.x, Screen.height - margins.y, margins.z, Screen.width - margins.x); // left, top, bottom, right
@@ -59,6 +61,7 @@ public class Player : MonoBehaviour
             availableDefs[i] = shooters[i];
         }
         defenceIndicator.InitIndicator(defences, icons);
+        healthBar.InitHealth(health);
     }
 
     void Move()
@@ -126,6 +129,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        healthBar.UpdateHealth(health);
         if (health <= 0)
         {
             manager.PlayerKilled();
