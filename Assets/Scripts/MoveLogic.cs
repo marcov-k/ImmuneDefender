@@ -85,7 +85,7 @@ public class Combined : MoveLogic
             }
             if (pos.y > 0)
             {
-                options.Add(new(pos.x, pos.y + 1));
+                options.Add(new(pos.x, pos.y - 1));
                 if (xValid) options.Add(new(pos.x + 1, pos.y - 1));
             }
         }
