@@ -1,18 +1,40 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.InputSystem;
 
 public class Settings : MonoBehaviour
 {
     [SerializeField] GameObject settingsCont;
     [SerializeField] Slider[] volumeSliders; // in the order: master, music, effects
     public static bool open = false;
+    InputActions inputs;
+
+    void Awake()
+    {
+        inputs = new();
+    }
 
     void Start()
     {
         InitializeSliders();
+        InitInputs();
         open = false;
         settingsCont.SetActive(false);
+    }
+
+    void OnEnable()
+    {
+        inputs.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputs.Disable();
+    }
+
+    void InitInputs()
+    {
+        inputs.Player.Pause.performed += ctx => OnPause();
     }
 
     void InitializeSliders()
@@ -48,5 +70,10 @@ public class Settings : MonoBehaviour
                 SettingsData.effectsVolume = volumeSliders[index].value;
                 break;
         }
+    }
+
+    public void OnPause()
+    {
+        if (open) HideSettings();
     }
 }

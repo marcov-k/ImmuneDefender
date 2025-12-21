@@ -8,17 +8,35 @@ public class PauseMenu : MonoBehaviour
     public static bool paused = false;
     static bool permPause = false;
     Settings settings;
+    InputActions inputs;
 
     void Awake()
     {
         settings = FindFirstObjectByType<Settings>();
+        inputs = new();
     }
 
     void Start()
     {
+        InitInputs();
         paused = false;
         background.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    void InitInputs()
+    {
+        inputs.Player.Pause.performed += ctx => OnPause();
+    }
+
+    void OnEnable()
+    {
+        inputs.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputs.Disable();
     }
 
     public void OnPause()

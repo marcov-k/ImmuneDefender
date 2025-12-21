@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour
     public Sprite icon;
     bool onCooldown = false;
     public bool active;
+    InputActions inputs;
 
     void Awake()
     {
@@ -19,6 +20,27 @@ public class Shooter : MonoBehaviour
     void InitValues()
     {
         icon = projectilePrefab.GetComponent<SpriteRenderer>().sprite;
+        inputs = new();
+    }
+
+    void Start()
+    {
+        InitInputs();
+    }
+
+    void InitInputs()
+    {
+        inputs.Player.Attack.performed += ctx => OnAttack();
+    }
+
+    void OnEnable()
+    {
+        inputs.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputs.Disable();
     }
 
     void Shoot()

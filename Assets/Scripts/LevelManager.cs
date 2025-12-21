@@ -42,6 +42,7 @@ public class LevelManager : MonoBehaviour
         {
             totalScore += enemy.enemy.GetComponent<Enemy>().score;
         }
+        totalScore = Mathf.Round(totalScore);
         pauseMenu = FindFirstObjectByType<PauseMenu>();
 
         float screenBottom = Camera.main.ScreenToWorldPoint(new(0, 0)).y;
@@ -152,6 +153,7 @@ public class LevelManager : MonoBehaviour
         {
             score += enemyScore;
         }
+        score = Mathf.Round(score);
         float relScore = score / totalScore;
         int stars = Mathf.RoundToInt(relScore * 3.0f);
         endScreen.ShowResults(won, stars, score, totalScore);

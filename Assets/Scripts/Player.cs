@@ -20,16 +20,33 @@ public class Player : MonoBehaviour
     Shooter[] availableDefs;
     DefIndicator defenceIndicator;
     HealthBar healthBar;
+    InputActions inputs;
+
+    void Awake()
+    {
+        inputs = new();
+    }
 
     void Start()
     {
         InitValues();
+        InitInputs();
         StartCoroutine(InitDefenceIndicator());
     }
 
     void Update()
     {
         Move();
+    }
+
+    void OnEnable()
+    {
+        inputs.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputs.Disable();
     }
 
     void InitValues()
@@ -64,8 +81,14 @@ public class Player : MonoBehaviour
         healthBar.InitHealth(health);
     }
 
+    void InitInputs()
+    {
+        inputs.Player.ChangeDef.performed += ctx => OnChangeDef(ctx);
+    }
+
     void Move()
     {
+        move = inputs.Player.Move.ReadValue<Vector2>();
         transform.position = new(transform.position.x + move.x * moveSpeed * Time.deltaTime, transform.position.y + move.y * moveSpeed * Time.deltaTime);
         if (transform.position.y + dims.y > bounds.y)
         {
@@ -116,14 +139,9 @@ public class Player : MonoBehaviour
         defenceIndicator.UpdateIndicator(selectedDef);
     }
 
-    public void OnMove(InputValue input)
+    public void OnChangeDef(InputAction.CallbackContext input)
     {
-        move = input.Get<Vector2>();
-    }
-
-    public void OnChangeDef(InputValue input)
-    {
-        UpdateDefence(input.Get<float>());
+        UpdateDefence(input.ReadValue<float>());
     }
 
     public void TakeDamage(float damage)
