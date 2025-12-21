@@ -110,7 +110,7 @@ public class LevelManager : MonoBehaviour
                 options.Add(i);
             }
         }
-        return random.Next(options.Count);
+        return options[random.Next(options.Count)];
     }
 
     void ScrollBackground()

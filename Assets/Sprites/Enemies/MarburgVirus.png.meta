@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: cc83135ba53ef0244bc794038ba85cf8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8315135875786152526
+    second: Marburg Virus_0
+  - first:
+      213: -192191146064022036
+    second: Marburg Virus_1
+  - first:
+      213: 545393333307532125
+    second: Marburg Virus_2
+  - first:
+      213: -1235798401385239100
+    second: Marburg Virus_3
+  - first:
+      213: 7344188791650665125
+    second: Marburg Virus_4
+  - first:
+      213: -1784001055774414764
+    second: Marburg Virus_5
+  - first:
+      213: -4486505822336330937
+    second: Marburg Virus_6
+  - first:
+      213: -6785853126580759981
+    second: Marburg Virus_7
+  - first:
+      213: -7928255198746114131
+    second: Marburg Virus_8
+  - first:
+      213: 1151266445558751924
+    second: Marburg Virus_9
+  - first:
+      213: -2772718376369211576
+    second: Marburg Virus_10
+  - first:
+      213: 4431945119995550796
+    second: Marburg Virus_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Marburg Virus_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1663
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4a1757060c456370800000000000000
+      internalID: 8315135875786152526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_1
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1663
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce5f0e1cb23355df0800000000000000
+      internalID: -192191146064022036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_2
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 1663
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5369a6d850a19700800000000000000
+      internalID: 545393333307532125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_3
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1151
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cdef67c6ef89dee0800000000000000
+      internalID: -1235798401385239100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_4
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1151
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a24eb97bcccbe560800000000000000
+      internalID: 7344188791650665125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_5
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 1151
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 458e4a7ed74fd37e0800000000000000
+      internalID: -1784001055774414764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_6
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 607
+        width: 386
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743dbe0a9babcb1c0800000000000000
+      internalID: -4486505822336330937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_7
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 575
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3521e2cc88ec3d1a0800000000000000
+      internalID: -6785853126580759981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_8
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 575
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da7081607ed29f190800000000000000
+      internalID: -7928255198746114131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 449
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b22b598bbe1aff00800000000000000
+      internalID: 1151266445558751924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 63
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847b052c3535589d0800000000000000
+      internalID: -2772718376369211576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marburg Virus_11
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 95
+        width: 386
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c5c5dea9e618d30800000000000000
+      internalID: 4431945119995550796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Marburg Virus_0: 8315135875786152526
+      Marburg Virus_1: -192191146064022036
+      Marburg Virus_10: -2772718376369211576
+      Marburg Virus_11: 4431945119995550796
+      Marburg Virus_2: 545393333307532125
+      Marburg Virus_3: -1235798401385239100
+      Marburg Virus_4: 7344188791650665125
+      Marburg Virus_5: -1784001055774414764
+      Marburg Virus_6: -4486505822336330937
+      Marburg Virus_7: -6785853126580759981
+      Marburg Virus_8: -7928255198746114131
+      Marburg Virus_9: 1151266445558751924
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
