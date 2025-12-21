@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cytokine_0: -1457616056045084259
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

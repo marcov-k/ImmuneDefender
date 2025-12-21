@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Neutrophil_0: -1836330436245040283
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
