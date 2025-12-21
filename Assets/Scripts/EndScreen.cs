@@ -13,6 +13,7 @@ public class EndScreen : MonoBehaviour
     [SerializeField] List<GameObject> stars = new();
     [SerializeField] float starDelay;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] GameObject scoreIcon;
     [SerializeField] GameObject background;
 
     void Start()
@@ -30,6 +31,7 @@ public class EndScreen : MonoBehaviour
             starColor = image.color;
             image.color = new(0, 0, 0, 0);
         }
+        scoreIcon.SetActive(false);
         scoreText.text = string.Empty;
         background.SetActive(false);
     }
@@ -40,11 +42,11 @@ public class EndScreen : MonoBehaviour
         switch (won)
         {
             case true:
-                winText.text = "Victory";
+                winText.text = "Victory!";
                 winText.color = winTextColor;
                 break;
             case false:
-                winText.text = "Defeat";
+                winText.text = "Defeat!";
                 winText.color = lossTextColor;
                 break;
         }
@@ -59,6 +61,7 @@ public class EndScreen : MonoBehaviour
             stars[i].GetComponent<Image>().color = starColor;
         }
         yield return new WaitForSecondsRealtime(starDelay);
-        scoreText.text = $"Score: {score} / {maxScore}";
+        scoreIcon.SetActive(true);
+        scoreText.text = $"{score} / {maxScore}";
     }
 }
