@@ -23,7 +23,7 @@ public class Shooter : MonoBehaviour
         projectilePrefab = data.prefab;
         shotCount = data.shotCount;
         spreadAngle = data.spread;
-        cooldown = data.cooldown;
+        cooldown = 1.0f / data.firerate;
     }
 
     void Start()

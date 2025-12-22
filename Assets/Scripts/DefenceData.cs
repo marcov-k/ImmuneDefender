@@ -12,7 +12,7 @@ public class DefenceData : ScriptableObject
     public bool area;
     public float areaDamageInterval;
     public float range;
-    public float cooldown;
+    public float firerate;
     public int shotCount;
     public float spread;
     public Sprite icon;
