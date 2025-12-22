@@ -6,25 +6,16 @@ using Unity.VisualScripting;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] string projName;
-    [SerializeField] float speed;
-    [SerializeField] float damage;
-    [SerializeField] bool piercing;
-    [SerializeField] bool area;
-    [SerializeField] float areaDamageInterval;
-    [SerializeField] float range;
+    float speed;
+    float damage;
+    bool piercing;
+    bool area;
+    float areaDamageInterval;
+    float range;
+    DefenceData data;
     float distTraveled;
     readonly List<Enemy> damageEnemies = new();
     float screenTop;
-
-    void Start()
-    {
-        InitValues();
-        if (area)
-        {
-            StartCoroutine(AreaDamageCoroutine());
-        }
-    }
 
     void Update()
     {
@@ -35,6 +26,12 @@ public class Projectile : MonoBehaviour
     {
         var renderer = GetComponent<SpriteRenderer>();
         screenTop = Camera.main.ScreenToWorldPoint(new(0, Screen.height)).y + renderer.bounds.extents.y;
+        speed = data.speed;
+        damage = data.damage;
+        piercing = data.piercing;
+        area = data.area;
+        areaDamageInterval = data.areaDamageInterval;
+        range = data.range;
     }
 
     void Move()
@@ -62,7 +59,7 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-                enemy.TakeDamage(damage, projName);
+                enemy.TakeDamage(damage, data);
                 Destroy(gameObject);
             }
         }
@@ -82,13 +79,23 @@ public class Projectile : MonoBehaviour
         {
             foreach (var enemy in damageEnemies.ToList())
             {
-                enemy.TakeDamage(damage, projName);
+                enemy.TakeDamage(damage, data);
                 if (enemy.gameObject.IsDestroyed())
                 {
                     damageEnemies.Remove(enemy);
                 }
             }
             yield return new WaitForSeconds(areaDamageInterval);
+        }
+    }
+
+    public void SetData(DefenceData newData)
+    {
+        data = newData;
+        InitValues();
+        if (area)
+        {
+            StartCoroutine(AreaDamageCoroutine());
         }
     }
 }

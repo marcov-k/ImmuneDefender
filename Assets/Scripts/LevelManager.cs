@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
     {
         foreach (var enemy in levelData.enemies)
         {
-            totalScore += enemy.enemy.GetComponent<Enemy>().score;
+            totalScore += enemy.enemy.GetComponent<Enemy>().data.score;
         }
         totalScore = Mathf.Round(totalScore);
         pauseMenu = FindFirstObjectByType<PauseMenu>();

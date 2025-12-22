@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6035b49d0eca89247a1824d507668d04, type: 3}
+  m_Name: Covid
+  m_EditorClassIdentifier: 
+  type: virus
+  damage: 5
+  speed: 3.5
+  health: 5
+  score: 5
+  moveLogicName: combined
+  boss: 0
+  icon: {fileID: -1272840303, guid: 4eb86a8851939e64d85fdebdc914f47d, type: 3}

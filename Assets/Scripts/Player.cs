@@ -64,11 +64,11 @@ public class Player : MonoBehaviour
         dims = new(renderer.bounds.extents.x, renderer.bounds.extents.y);
 
         shooters[0].active = true;
-        List<Sprite> icons = new() { shooters[0].icon };
+        List<Sprite> icons = new() { shooters[0].data.icon };
         for (int i = 1; i < shooters.Length; i++)
         {
             shooters[i].active = false;
-            icons.Add(shooters[i].icon);
+            icons.Add(shooters[i].data.icon);
         }
         defences = manager.GetDefencesUnlocked() - 1;
         selectedDef = 0;

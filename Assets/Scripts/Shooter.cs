@@ -1,13 +1,13 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class Shooter : MonoBehaviour
 {
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] int shotCount;
-    [SerializeField] float spreadAngle;
-    [SerializeField] float cooldown;
-    public Sprite icon;
+    public DefenceData data;
+    GameObject projectilePrefab;
+    int shotCount;
+    float spreadAngle;
+    float cooldown;
     bool onCooldown = false;
     public bool active;
     InputActions inputs;
@@ -19,8 +19,11 @@ public class Shooter : MonoBehaviour
 
     void InitValues()
     {
-        icon = projectilePrefab.GetComponent<SpriteRenderer>().sprite;
         inputs = new();
+        projectilePrefab = data.prefab;
+        shotCount = data.shotCount;
+        spreadAngle = data.spread;
+        cooldown = data.cooldown;
     }
 
     void Start()
@@ -47,9 +50,11 @@ public class Shooter : MonoBehaviour
     {
         if (!onCooldown)
         {
+            List<Projectile> projs = new();
             if (shotCount == 1)
             {
-                Instantiate(projectilePrefab, transform.position, transform.rotation);
+                var proj = Instantiate(projectilePrefab, transform.position, transform.rotation);
+                projs.Add(proj.GetComponent<Projectile>());
             }
             else
             {
@@ -61,8 +66,14 @@ public class Shooter : MonoBehaviour
                 for (int i = 0; i < shotCount; i++)
                 {
                     float angle = minAngle + angleStep * (i + 1);
-                    Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0, 0, angle));
+                    var proj = Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0, 0, angle));
+                    projs.Add(proj.GetComponent<Projectile>());
                 }
+            }
+
+            foreach (var proj in projs)
+            {
+                proj.SetData(data);
             }
             onCooldown = true;
             Invoke(nameof(ResetCooldown), cooldown);

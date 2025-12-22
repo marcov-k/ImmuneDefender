@@ -6,21 +6,18 @@ using System.Linq;
 
 public class Enemy : MonoBehaviour
 {
+    public EnemyData data;
     public int2 pos;
-    public int2 lastPos;
+    int2 lastPos;
     public LevelManager manager;
-    public float damage;
-    public float health;
-    public float speed;
-    public float score;
-    [SerializeField] bool boss = false;
+    float damage;
+    float health;
+    float score;
     float moveDelay;
     float moveTime;
-    public string moveLogicName;
     MoveLogic moveLogic;
     System.Random random;
     Player player;
-    [SerializeField] List<string> resists = new();
     bool disableResist = false;
     [SerializeField] ParticleSystem cytokineEm;
 
@@ -32,11 +29,14 @@ public class Enemy : MonoBehaviour
 
     void InitValues()
     {
-        moveDelay = 1.0f / speed;
+        moveDelay = 1.0f / data.speed;
         moveTime = moveDelay / 2.0f;
-        moveLogic = MoveCont.GetMoveLogic(moveLogicName);
+        moveLogic = MoveCont.GetMoveLogic(data.moveLogicName);
         random = new();
         player = FindFirstObjectByType<Player>();
+        health = data.health;
+        damage = data.damage;
+        score = data.score;
     }
 
     IEnumerator MoveCoroutine()
@@ -147,9 +147,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage, string projName)
+    public void TakeDamage(float damage, DefenceData defence)
     {
-        if (resists.Contains(projName) && !disableResist)
+        if (!disableResist && !defence.strengths.Contains(data.type))
         {
             damage *= 0.5f;
         }
@@ -157,7 +157,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             manager.positions[pos.x, pos.y].filled = 0;
-            if (boss) manager.BossKilled(score);
+            if (data.boss) manager.BossKilled(score);
             else manager.EnemyKilled(score);
 
             gameObject.SetActive(false);

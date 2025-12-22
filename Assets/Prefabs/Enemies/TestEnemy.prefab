@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bdf181855dfb24984ff5473ab97240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: db73ded05a9261640870bfdd2b80a023, type: 2}
   pos:
     x: 0
     y: 0
@@ -112,11 +113,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   damage: 10
   health: 10
-  speed: 1
   score: 10
-  boss: 0
-  moveLogicName: linear
-  resists: []
   cytokineEm: {fileID: 4968066762124083950}
 --- !u!58 &2334078537273373473
 CircleCollider2D:

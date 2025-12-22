@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bdf181855dfb24984ff5473ab97240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 1a94d829cf452514a8c50d44a255133b, type: 2}
   pos:
     x: 0
     y: 0
@@ -113,12 +114,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   damage: 5
   health: 10
-  speed: 2
   score: 5
-  boss: 0
-  moveLogicName: combined
-  resists:
-  - neutrophil
   cytokineEm: {fileID: 4968066762124083950}
 --- !u!58 &2334078537273373473
 CircleCollider2D:

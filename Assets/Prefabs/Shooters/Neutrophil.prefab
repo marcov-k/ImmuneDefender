@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224cf4d1b9cf6654097d8ccbe0292bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4044858525666831532, guid: 5a2efd565474c3a44882c01664bfda57, type: 3}
-  shotCount: 1
-  spreadAngle: 0
-  cooldown: 0.25
+  data: {fileID: 11400000, guid: 368814d15ef840b469c74703f0da6d41, type: 2}
+  icon: {fileID: 0}
   active: 0
