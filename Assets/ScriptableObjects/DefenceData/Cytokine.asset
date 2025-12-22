@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a5f8b941e365541800e25b25f2b260, type: 3}
   m_Name: Cytokine
   m_EditorClassIdentifier: 
+  defenceName: Cytokine
+  description: desc.cytokine
   damage: 0
   speed: 7.5
   piercing: 1
   area: 0
   areaDamageInterval: 0
   range: 15
-  cooldown: 0.75
+  firerate: 2
   shotCount: 1
   spread: 0
   icon: {fileID: -1457616056045084259, guid: c0e7f204ec8150a429a443cbb98cd7b2, type: 3}

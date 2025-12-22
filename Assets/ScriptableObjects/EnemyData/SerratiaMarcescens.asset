@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6035b49d0eca89247a1824d507668d04, type: 3}
   m_Name: SerratiaMarcescens
   m_EditorClassIdentifier: 
+  invaderName: Serratia Marcescens
+  description: desc.serratia
   type: bacteria
   damage: 10
   speed: 1

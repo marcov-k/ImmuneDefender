@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a5f8b941e365541800e25b25f2b260, type: 3}
   m_Name: BCell
   m_EditorClassIdentifier: 
+  defenceName: B Cell
+  description: desc.bcell
   damage: 5
   speed: 5
   piercing: 0
   area: 1
   areaDamageInterval: 0.5
   range: 15
-  cooldown: 1
+  firerate: 1
   shotCount: 1
   spread: 0
   icon: {fileID: 2354725358070332112, guid: 02074af9ea21a1b439f45854acb7efec, type: 3}

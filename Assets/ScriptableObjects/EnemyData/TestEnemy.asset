@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6035b49d0eca89247a1824d507668d04, type: 3}
   m_Name: TestEnemy
   m_EditorClassIdentifier: 
+  invaderName: Test Enemy
+  description: Test enemy please ignore
   type: none
   damage: 5
   speed: 1

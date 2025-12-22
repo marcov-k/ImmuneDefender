@@ -7,7 +7,8 @@ using static PlayerData;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] LevelData levelData;
+    [SerializeField] LevelData[] levelDatas;
+    LevelData levelData;
     [SerializeField] int2 gridDims = new(10, 10);
     [SerializeField] float3 padding = new(20, 20, 100); // left/right, top, bottom
     [SerializeField] GameObject posPrefab;
@@ -38,6 +39,7 @@ public class LevelManager : MonoBehaviour
 
     void InitValues()
     {
+        levelData = levelDatas[startedLevel - 1];
         foreach (var enemy in levelData.enemies)
         {
             totalScore += enemy.enemy.GetComponent<Enemy>().data.score;

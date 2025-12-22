@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6035b49d0eca89247a1824d507668d04, type: 3}
   m_Name: Covid
   m_EditorClassIdentifier: 
+  invaderName: COVID-19
+  description: desc.covid
   type: virus
   damage: 5
   speed: 3.5

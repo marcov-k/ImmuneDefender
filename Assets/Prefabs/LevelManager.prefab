@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f94dff8aed955c4f88b1c8be0c2f58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: 029acde77ecb5b74c9b5bc01c1660833, type: 2}
+  levelDatas:
+  - {fileID: 11400000, guid: 029acde77ecb5b74c9b5bc01c1660833, type: 2}
+  - {fileID: 11400000, guid: 8f2d490c284b77f4c8c16a3bffd2fe20, type: 2}
+  - {fileID: 11400000, guid: cfb9435e3a172934a9470dbc146b130d, type: 2}
   gridDims:
     x: 10
     y: 5

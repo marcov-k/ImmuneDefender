@@ -19,8 +19,13 @@ MonoBehaviour:
     spawnDelay: 2
   - enemy: {fileID: 301743323909848525, guid: 74dd69bb595821a49a0ea899f5604368, type: 3}
     spawnDelay: 2
-  - enemy: {fileID: 301743323909848525, guid: 2c9d9d5148e03704b97f5f0995953414, type: 3}
-    spawnDelay: 2
   - enemy: {fileID: 301743323909848525, guid: 74dd69bb595821a49a0ea899f5604368, type: 3}
     spawnDelay: 2
   defencesUnlocked: 3
+  newDefences:
+  - {fileID: 11400000, guid: e1ce788f2d5f0154a86e96a1f426bca8, type: 2}
+  - {fileID: 11400000, guid: 368814d15ef840b469c74703f0da6d41, type: 2}
+  - {fileID: 11400000, guid: 07fa134f057a8614389d2287e1f6bc02, type: 2}
+  newEnemies:
+  - {fileID: 11400000, guid: 1a94d829cf452514a8c50d44a255133b, type: 2}
+  - {fileID: 11400000, guid: 4a21a39d16e95fe4b8462cd13127d3b2, type: 2}
