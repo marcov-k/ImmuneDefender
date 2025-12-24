@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Neutrophil
   m_EditorClassIdentifier: 
   defenceName: Neutrophil
-  description: desc.neutrophil
+  description: "Neutrophils are the most common type of white blood cell. They form
+    the \u201Cfirst response\u201D component of the immune system, being the first
+    to arrive at an infected area. These cells are most effective at destroying bacteria."
   damage: 5
   speed: 15
   piercing: 0

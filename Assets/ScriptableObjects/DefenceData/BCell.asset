@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: BCell
   m_EditorClassIdentifier: 
   defenceName: B Cell
-  description: desc.bcell
+  description: B Cells produce antibodies in order to counter present invaders. When
+    an invader is detected, they mass produce these proteins in an area in order
+    to repel the attack, damaging any diseases around them.
   damage: 5
   speed: 5
   piercing: 0
@@ -26,4 +28,5 @@ MonoBehaviour:
   icon: {fileID: 2354725358070332112, guid: 02074af9ea21a1b439f45854acb7efec, type: 3}
   strengths:
   - virus
+  - bacteria
   prefab: {fileID: 4044858525666831532, guid: 267534bed803f7c4ca5444e83f02b589, type: 3}

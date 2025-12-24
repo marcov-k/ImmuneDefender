@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Basophil
   m_EditorClassIdentifier: 
   defenceName: Basophil
-  description: desc.basophil
+  description: Basophils cause inflammation within infected areas through releasing
+    chemicals such as histamine. They help defend against diseases in specific areas
+    and can even prevent early cancers.
   damage: 7.5
   speed: 7.5
   piercing: 0

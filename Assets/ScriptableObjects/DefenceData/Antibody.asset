@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Antibody
   m_EditorClassIdentifier: 
   defenceName: Antibody
-  description: desc.antibody
+  description: Antibodies are proteins which attach to specific invading cells and
+    then remove said cells from the body. Each antibody is specialized to counter
+    a specific invading cell, providing defence against a variety of viruses and
+    bacteria alike.
   damage: 10
   speed: 7.5
   piercing: 0

@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Cytokine
   m_EditorClassIdentifier: 
   defenceName: Cytokine
-  description: desc.cytokine
+  description: Cytokines are small proteins which support other cells in defending
+    against diseases. They stimulate defences and attract other immune system cells
+    to areas where they are required.Thus, they increase the effectiveness of other
+    cells on invaders which they mark.
   damage: 0
   speed: 7.5
   piercing: 1
