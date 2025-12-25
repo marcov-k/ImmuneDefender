@@ -11,6 +11,7 @@ public class Shooter : MonoBehaviour
     bool onCooldown = false;
     public bool active;
     InputActions inputs;
+    Player player;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class Shooter : MonoBehaviour
 
     void InitValues()
     {
+        player = FindFirstObjectByType<Player>();
         inputs = new();
         projectilePrefab = data.prefab;
         shotCount = data.shotCount;
@@ -50,6 +52,7 @@ public class Shooter : MonoBehaviour
     {
         if (!onCooldown)
         {
+            player.Shoot();
             List<Projectile> projs = new();
             if (shotCount == 1)
             {

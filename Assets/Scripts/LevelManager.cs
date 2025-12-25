@@ -25,6 +25,11 @@ public class LevelManager : MonoBehaviour
     PauseMenu pauseMenu;
     System.Random random;
 
+    void Awake()
+    {
+        levelData = levelDatas[startedLevel - 1];
+    }
+
     void Start()
     {
         InitValues();
@@ -39,7 +44,6 @@ public class LevelManager : MonoBehaviour
 
     void InitValues()
     {
-        levelData = levelDatas[startedLevel - 1];
         foreach (var enemy in levelData.enemies)
         {
             totalScore += enemy.enemy.GetComponent<Enemy>().data.score;

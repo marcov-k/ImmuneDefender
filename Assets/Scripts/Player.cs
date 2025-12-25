@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 2.0f;
@@ -21,10 +22,12 @@ public class Player : MonoBehaviour
     DefIndicator defenceIndicator;
     HealthBar healthBar;
     InputActions inputs;
+    Animator animator;
 
     void Awake()
     {
         inputs = new();
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -153,5 +156,10 @@ public class Player : MonoBehaviour
             manager.PlayerKilled();
             Destroy(gameObject);
         }
+    }
+
+    public void Shoot()
+    {
+        animator.SetTrigger("Shoot");
     }
 }
