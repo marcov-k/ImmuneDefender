@@ -70,4 +70,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0f44b25816f9fbc4197a972f111b8490, type: 3}
   - {fileID: 8300000, guid: c8b554c831cb2c044bac5439a545f842, type: 3}
   musicSpeed: 90
+  speedIncrease: 0.1
+  maxMusicSpeed: 200
+  fadeDuration: 0.35
   volumeMult: 1
