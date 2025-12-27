@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour
     public Position[] spawnPositions;
     float totalScore;
     readonly List<float> killedEnemyScores = new();
+    int bossCount = 0;
+    int bossesKilled = 0;
     PauseMenu pauseMenu;
     System.Random random;
 
@@ -46,7 +48,9 @@ public class LevelManager : MonoBehaviour
     {
         foreach (var enemy in levelData.enemies)
         {
-            totalScore += enemy.enemy.GetComponent<Enemy>().data.score;
+            Enemy script = enemy.enemy.GetComponent<Enemy>();
+            totalScore += script.data.score;
+            if (script.data.boss) bossCount++;
         }
         totalScore = Mathf.Round(totalScore);
         pauseMenu = FindFirstObjectByType<PauseMenu>();
@@ -182,7 +186,8 @@ public class LevelManager : MonoBehaviour
     public void BossKilled(float enemyScore)
     {
         killedEnemyScores.Add(enemyScore);
-        ShowEndScreen(true);
+        bossesKilled++;
+        if (bossesKilled == bossCount) ShowEndScreen(true);
     }
 
     public void Continue()
