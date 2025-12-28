@@ -48,7 +48,7 @@ public class Diagonal : MoveLogic
 
         if (options.Count == 0)
         {
-            if (pos.x < positions.GetLength(0) - 1 && pos.y < positions.GetLength(1) - 1)
+            if (pos.x < positions.GetLength(0) - 1)
             {
                 if (pos.y < positions.GetLength(1) - 1)
                 {
