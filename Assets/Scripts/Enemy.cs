@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     Player player;
     bool disableResist = false;
     [SerializeField] ParticleSystem cytokineEm;
+    ShakeSystem shakeSystem;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
 
     void InitValues()
     {
+        shakeSystem = gameObject.AddComponent<ShakeSystem>();
         moveDelay = 1.0f / data.speed;
         moveTime = moveDelay / 2.0f;
         moveLogic = MoveCont.GetMoveLogic(data.moveLogicName);
@@ -154,6 +156,7 @@ public class Enemy : MonoBehaviour
             damage *= 0.5f;
         }
         health -= damage;
+        shakeSystem.Shake(damage);
         if (health <= 0)
         {
             manager.positions[pos.x, pos.y].filled = 0;

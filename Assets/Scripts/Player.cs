@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     HealthBar healthBar;
     InputActions inputs;
     Animator animator;
+    ShakeSystem shakeSystem;
 
     void Awake()
     {
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour
 
     void InitValues()
     {
+        shakeSystem = gameObject.AddComponent<ShakeSystem>();
         manager = FindFirstObjectByType<LevelManager>();
         defenceIndicator = FindFirstObjectByType<DefIndicator>();
         healthBar = FindFirstObjectByType<HealthBar>();
@@ -150,6 +152,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        shakeSystem.Shake(damage);
         healthBar.UpdateHealth(health);
         if (health <= 0)
         {

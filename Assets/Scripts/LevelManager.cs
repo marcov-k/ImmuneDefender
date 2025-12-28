@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] LevelData[] levelDatas;
     LevelData levelData;
+    Player player;
     [SerializeField] int2 gridDims = new(10, 10);
     [SerializeField] float3 padding = new(20, 20, 100); // left/right, top, bottom
     [SerializeField] GameObject posPrefab;
@@ -54,6 +55,7 @@ public class LevelManager : MonoBehaviour
         }
         totalScore = Mathf.Round(totalScore);
         pauseMenu = FindFirstObjectByType<PauseMenu>();
+        player = FindFirstObjectByType<Player>();
 
         float screenBottom = Camera.main.ScreenToWorldPoint(new(0, 0)).y;
         float screenTop = Camera.main.ScreenToWorldPoint(new(0, Screen.height)).y;
@@ -171,7 +173,7 @@ public class LevelManager : MonoBehaviour
 
     public void PlayerKilled()
     {
-        ShowEndScreen(false);
+        ShowEndScreen(won: false);
     }
 
     public void EnemyKilled(float enemyScore)
@@ -179,7 +181,8 @@ public class LevelManager : MonoBehaviour
         killedEnemyScores.Add(enemyScore);
         if (killedEnemyScores.Count == levelData.enemies.Length)
         {
-            ShowEndScreen(true);
+            if (player.health > 0) ShowEndScreen(won: true);
+            else ShowEndScreen(won: false);
         }
     }
 
@@ -187,7 +190,7 @@ public class LevelManager : MonoBehaviour
     {
         killedEnemyScores.Add(enemyScore);
         bossesKilled++;
-        if (bossesKilled == bossCount) ShowEndScreen(true);
+        if (bossesKilled == bossCount) ShowEndScreen(won: true);
     }
 
     public void Continue()
