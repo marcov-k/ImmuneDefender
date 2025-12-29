@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     Settings settings;
+    [SerializeField] Overlay controlsOverlay;
 
     void Start()
     {
@@ -18,6 +19,11 @@ public class MainMenu : MonoBehaviour
     public void ShowSettings()
     {
         settings.ShowSettings();
+    }
+
+    public void ShowControls()
+    {
+        controlsOverlay.Show();
     }
 
     public void QuitGame()

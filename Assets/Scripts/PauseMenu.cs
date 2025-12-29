@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool paused = false;
     static bool permPause = false;
     Settings settings;
+    [SerializeField] Overlay controlsOverlay;
     InputActions inputs;
 
     void Awake()
@@ -41,7 +42,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnPause()
     {
-        if (!Settings.open && !permPause)
+        if (!Settings.open && !permPause && !controlsOverlay.open)
         {
             paused = !paused;
             background.SetActive(paused);
@@ -52,7 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        if (!Settings.open && !permPause)
+        if (!Settings.open && !permPause && !controlsOverlay.open)
         {
             paused = false;
             background.SetActive(false);
@@ -76,5 +77,10 @@ public class PauseMenu : MonoBehaviour
     public void ShowSettings()
     {
         settings.ShowSettings();
+    }
+
+    public void ShowControls()
+    {
+        controlsOverlay.Show();
     }
 }
