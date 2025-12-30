@@ -190,7 +190,11 @@ public class LevelManager : MonoBehaviour
     {
         killedEnemyScores.Add(enemyScore);
         bossesKilled++;
-        if (bossesKilled == bossCount) ShowEndScreen(won: true);
+        if (bossesKilled == bossCount)
+        {
+            if (player.health > 0) ShowEndScreen(won: true);
+            else ShowEndScreen(won: false);
+        }
     }
 
     public void Continue()

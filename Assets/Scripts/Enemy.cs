@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     bool disableResist = false;
     [SerializeField] ParticleSystem cytokineEm;
     ShakeSystem shakeSystem;
+    bool killed = false;
 
     void Start()
     {
@@ -159,11 +160,15 @@ public class Enemy : MonoBehaviour
         shakeSystem.Shake(damage);
         if (health <= 0)
         {
-            manager.positions[pos.x, pos.y].filled = 0;
-            if (data.boss) manager.BossKilled(score);
-            else manager.EnemyKilled(score);
+            if (!killed)
+            {
+                killed = true;
+                manager.positions[pos.x, pos.y].filled = 0;
+                if (data.boss) manager.BossKilled(score);
+                else manager.EnemyKilled(score);
 
-            gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
         }
     }
 
@@ -181,7 +186,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.layer == 7 && player != null)
         {
             player.TakeDamage(damage);
-            manager.EnemyKilled(0);
+            if (data.boss) manager.BossKilled(0);
+            else manager.EnemyKilled(0);
             gameObject.SetActive(false);
         }
     }
