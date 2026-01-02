@@ -133,8 +133,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1501e7859a743b641a02b18239d41f63, type: 3}
   - {fileID: 8300000, guid: 2b7aa18f2fea1594ca9dfbbb4b845a12, type: 3}
   - {fileID: 8300000, guid: 2d30a1df0f88d8d4bb38526dd1567fae, type: 3}
-  musicSpeed: 90
-  speedIncrease: 0.1
-  maxMusicSpeed: 200
+  musicSpeed: 60
+  speedIncrease: 1
+  maxMusicSpeed: 120
   fadeDuration: 0.35
   volumeMult: 1

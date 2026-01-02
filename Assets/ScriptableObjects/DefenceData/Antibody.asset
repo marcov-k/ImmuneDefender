@@ -18,12 +18,12 @@ MonoBehaviour:
     a specific invading cell, providing defence against a variety of viruses and
     bacteria alike.
   damage: 10
-  speed: 7.5
+  speed: 15
   piercing: 0
   area: 0
   areaDamageInterval: 0
   range: 15
-  firerate: 1.5
+  firerate: 2
   shotCount: 1
   spread: 0
   icon: {fileID: 5962017957662805387, guid: cd46fa545b6d32e4f96eb8f300cb997b, type: 3}

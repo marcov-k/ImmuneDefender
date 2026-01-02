@@ -17,12 +17,12 @@ MonoBehaviour:
     the \u201Cfirst response\u201D component of the immune system, being the first
     to arrive at an infected area. These cells are most effective at destroying bacteria."
   damage: 5
-  speed: 15
+  speed: 25
   piercing: 0
   area: 0
   areaDamageInterval: 0
   range: 15
-  firerate: 1.5
+  firerate: 5
   shotCount: 1
   spread: 0
   icon: {fileID: -1836330436245040283, guid: 4d599d1a1c4dd0247aa123587d2c601c, type: 3}

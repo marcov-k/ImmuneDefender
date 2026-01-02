@@ -150,8 +150,8 @@ public class MusicPlayer : MonoBehaviour
         WaitForSeconds delay = new(1.0f);
         while (musicSpeed < maxMusicSpeed)
         {
-            musicSpeed = Mathf.Min(musicSpeed + speedIncrease, maxMusicSpeed);
             yield return delay;
+            musicSpeed = Mathf.Min(musicSpeed + speedIncrease, maxMusicSpeed);
         }
     }
 
