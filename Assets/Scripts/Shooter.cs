@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+using System.Collections;
 
 public class Shooter : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Shooter : MonoBehaviour
     public bool active;
     InputActions inputs;
     Player player;
+    bool shooting = false;
 
     void Awake()
     {
@@ -30,12 +33,12 @@ public class Shooter : MonoBehaviour
 
     void Start()
     {
-        InitInputs();
+        StartCoroutine(ShootCoroutine());
     }
 
-    void InitInputs()
+    void Update()
     {
-        inputs.Player.Attack.performed += ctx => OnAttack();
+        UpdateShooting();
     }
 
     void OnEnable()
@@ -48,48 +51,56 @@ public class Shooter : MonoBehaviour
         inputs.Disable();
     }
 
-    void Shoot()
+    void UpdateShooting()
     {
-        if (!onCooldown)
+        if (inputs.Player.Attack.ReadValue<float>() != 0.0f)
         {
-            player.Shoot();
-            List<Projectile> projs = new();
-            if (shotCount == 1)
-            {
-                var proj = Instantiate(projectilePrefab, transform.position, transform.rotation);
-                projs.Add(proj.GetComponent<Projectile>());
-            }
-            else
-            {
-                float shotAngle = transform.rotation.eulerAngles.z;
-                float minAngle = shotAngle - spreadAngle / 2.0f;
-                float maxAngle = shotAngle + spreadAngle / 2.0f;
-                float angleStep = spreadAngle / (shotCount + 1);
+            shooting = true;
+        }
+        else shooting = false;
+    }
 
-                for (int i = 0; i < shotCount; i++)
+    IEnumerator ShootCoroutine()
+    {
+        while (true)
+        {
+            if (active && shooting && !onCooldown)
+            {
+                player.Shoot();
+                List<Projectile> projs = new();
+                if (shotCount == 1)
                 {
-                    float angle = minAngle + angleStep * (i + 1);
-                    var proj = Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0, 0, angle));
+                    var proj = Instantiate(projectilePrefab, transform.position, transform.rotation);
                     projs.Add(proj.GetComponent<Projectile>());
                 }
-            }
+                else
+                {
+                    float shotAngle = transform.rotation.eulerAngles.z;
+                    float minAngle = shotAngle - spreadAngle / 2.0f;
+                    float maxAngle = shotAngle + spreadAngle / 2.0f;
+                    float angleStep = spreadAngle / (shotCount + 1);
 
-            foreach (var proj in projs)
-            {
-                proj.SetData(data);
+                    for (int i = 0; i < shotCount; i++)
+                    {
+                        float angle = minAngle + angleStep * (i + 1);
+                        var proj = Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0, 0, angle));
+                        projs.Add(proj.GetComponent<Projectile>());
+                    }
+                }
+
+                foreach (var proj in projs)
+                {
+                    proj.SetData(data);
+                }
+                onCooldown = true;
+                Invoke(nameof(ResetCooldown), cooldown);
             }
-            onCooldown = true;
-            Invoke(nameof(ResetCooldown), cooldown);
+            yield return new WaitForEndOfFrame();
         }
     }
 
     void ResetCooldown()
     {
         onCooldown = false;
-    }
-
-    public void OnAttack()
-    {
-        if (active) Shoot();
     }
 }

@@ -22,9 +22,9 @@ MonoBehaviour:
   area: 0
   areaDamageInterval: 0
   range: 3
-  firerate: 2
+  firerate: 1.5
   shotCount: 4
-  spread: 120
+  spread: 160
   icon: {fileID: 4581888097239437306, guid: 85725541213aca2439c434aa77f127bc, type: 3}
   strengths:
   - virus
