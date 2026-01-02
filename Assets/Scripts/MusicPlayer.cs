@@ -25,6 +25,7 @@ public class MusicPlayer : MonoBehaviour
     void Start()
     {
         trackRegex = new(trackRegexString);
+        UpdateVolume();
         PrepareDicts();
         AddAudioSources();
         PrepareTracks();
@@ -32,6 +33,11 @@ public class MusicPlayer : MonoBehaviour
     }
 
     void Update()
+    {
+        UpdateVolume();
+    }
+
+    void UpdateVolume()
     {
         musicVolume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
     }

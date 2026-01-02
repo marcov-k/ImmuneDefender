@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.Mathematics;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using TMPro;
 using static PlayerData;
 
 public class LevelManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] EndScreen endScreen;
     [SerializeField] float backgroundSpeed;
     [SerializeField] GameObject[] backgrounds;
+    [SerializeField] TextMeshProUGUI scoreText;
     int followBackground = 1;
     float2 screenEdges; // x = bottom, y = top
     float backgroundHeight;
@@ -23,6 +25,16 @@ public class LevelManager : MonoBehaviour
     public Position[] spawnPositions;
     float totalScore;
     readonly List<float> killedEnemyScores = new();
+    float CurrentScore
+    {
+        get { return _currentScore; }
+        set
+        {
+            _currentScore = value;
+            UpdateScore();
+        }
+    }
+    float _currentScore = 0;
     int bossCount = 0;
     int bossesKilled = 0;
     PauseMenu pauseMenu;
@@ -54,6 +66,7 @@ public class LevelManager : MonoBehaviour
             if (script.data.boss) bossCount++;
         }
         totalScore = Mathf.Round(totalScore);
+        CurrentScore = 0;
         pauseMenu = FindFirstObjectByType<PauseMenu>();
         player = FindFirstObjectByType<Player>();
 
@@ -150,6 +163,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void UpdateScore()
+    {
+        string text = string.Empty;
+        int score = Mathf.RoundToInt(CurrentScore);
+        int test = 100;
+        while (score < test && test > 1)
+        {
+            text += "0";
+            test /= 10;
+        }
+        scoreText.text = text + score;
+    }
+
     void ShowEndScreen(bool won)
     {
         pauseMenu.PermPause(true);
@@ -179,6 +205,7 @@ public class LevelManager : MonoBehaviour
     public void EnemyKilled(float enemyScore)
     {
         killedEnemyScores.Add(enemyScore);
+        CurrentScore += enemyScore;
         if (killedEnemyScores.Count == levelData.enemies.Length)
         {
             if (player.health > 0) ShowEndScreen(won: true);
@@ -189,6 +216,7 @@ public class LevelManager : MonoBehaviour
     public void BossKilled(float enemyScore)
     {
         killedEnemyScores.Add(enemyScore);
+        CurrentScore += enemyScore;
         bossesKilled++;
         if (bossesKilled == bossCount)
         {
