@@ -47,6 +47,7 @@ MonoBehaviour:
   tracks:
   - '[(C4P,,mf)]1[(D4P,,mf)]1[(E4P,,mf)]1[(F4P,,mf)]1[(G4P,,mf)]1[(A4P,,mf)]1[(B4P,,mf)]1[(C5P,,mf)]1[(B4P,,mf)]1[(A4P,,mf)]1[(G4P,,mf)]1[(F4P,,mf)]1[(E4P,,mf)]1[(D4P,,mf)]1[(C4P,,mf)]1[(,,)]1[(C4P,2,mf)]1[(E4P,2,mf)]1[(G4P,2,mf)]1[(C5P,2,mf)]1[(G4P,2,mf)]1[(E4P,2,mf)]1[(C4P,4,mf)]1[(,4,)]1'
   clips:
+  - {fileID: 8300000, guid: 9cfcacddc7d0cb74c95f9000c2d5930d, type: 3}
   - {fileID: 8300000, guid: 68fa992e50c99024ba0740e3da983648, type: 3}
   - {fileID: 8300000, guid: c3163ec8b7606d34dbb02077d62068ec, type: 3}
   - {fileID: 8300000, guid: bf43cb725890c3f4fb329f31e7be685c, type: 3}
