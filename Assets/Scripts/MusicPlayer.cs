@@ -56,6 +56,7 @@ public class MusicPlayer : MonoBehaviour
         {
             audioSources.Add(gameObject.AddComponent<AudioSource>());
             audioSources[i].playOnAwake = false;
+            audioSources[i].ignoreListenerPause = true;
             audioSources[i].Stop();
         }
     }
@@ -136,7 +137,7 @@ public class MusicPlayer : MonoBehaviour
                 while (time < fadeTime)
                 {
                     source.volume = Mathf.Lerp(startVol, 0.0f, time / fadeTime);
-                    time += Time.deltaTime;
+                    time += Time.unscaledDeltaTime;
                     yield return new WaitForEndOfFrame();
                 }
                 source.Stop();
