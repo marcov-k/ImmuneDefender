@@ -21,10 +21,12 @@ public class MusicPlayer : MonoBehaviour
     public float fadeDuration = 0.25f;
     public float volumeMult = 1.0f;
     float musicVolume = 1.0f;
+    float maxVolume;
 
     void Start()
     {
         trackRegex = new(trackRegexString);
+        InitValues();
         UpdateVolume();
         PrepareDicts();
         AddAudioSources();
@@ -40,6 +42,11 @@ public class MusicPlayer : MonoBehaviour
     void UpdateVolume()
     {
         musicVolume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
+    }
+
+    void InitValues()
+    {
+        maxVolume = dynDict["fff"] * volumeMult;
     }
 
     void PrepareDicts()
@@ -120,6 +127,9 @@ public class MusicPlayer : MonoBehaviour
     {
         float timeScale;
         float noteTime;
+        float time;
+        float fadeTime;
+        float startVol;
         while (true)
         {
             source.Stop();
@@ -127,13 +137,13 @@ public class MusicPlayer : MonoBehaviour
             {
                 timeScale = 60.0f / musicSpeed;
                 source.clip = note.clip;
-                source.volume = note.dyn * musicVolume;
+                source.volume = note.dyn * musicVolume / maxVolume;
                 noteTime = note.time * timeScale;
                 source.Play();
                 yield return new WaitForSecondsRealtime(noteTime * (1.0f - fadeDuration));
-                float time = 0;
-                float fadeTime = noteTime * fadeDuration;
-                float startVol = source.volume;
+                time = 0;
+                fadeTime = noteTime * fadeDuration;
+                startVol = source.volume;
                 while (time < fadeTime)
                 {
                     source.volume = Mathf.Lerp(startVol, 0.0f, time / fadeTime);
