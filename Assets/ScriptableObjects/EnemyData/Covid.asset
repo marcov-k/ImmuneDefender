@@ -16,9 +16,9 @@ MonoBehaviour:
   description: desc.covid
   type: virus
   damage: 5
-  speed: 3.5
+  speed: 2
   health: 5
-  score: 5
+  score: 10
   moveLogicName: combined
   boss: 0
   icon: {fileID: -1272840303, guid: 4eb86a8851939e64d85fdebdc914f47d, type: 3}

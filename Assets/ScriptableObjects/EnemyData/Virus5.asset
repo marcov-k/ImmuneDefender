@@ -16,9 +16,9 @@ MonoBehaviour:
   description: virus5.desc
   type: virus
   damage: 1
-  speed: 5
+  speed: 4
   health: 1
-  score: 1
+  score: 5
   moveLogicName: combined
   boss: 1
   icon: {fileID: -2135945197, guid: 27f4b4e445bb9ee4a9af82f14a15573d, type: 3}

@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Cytokines are small proteins which support other cells in defending
     against diseases. They stimulate defences and attract other immune system cells
     to areas where they are required.Thus, they increase the effectiveness of other
-    cells on invaders which they mark.
+    cells on invaders which they mark and increases the damage they take by 50%.
   damage: 0
   speed: 7.5
   piercing: 1

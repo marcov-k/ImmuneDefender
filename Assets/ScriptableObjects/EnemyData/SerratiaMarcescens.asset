@@ -15,10 +15,10 @@ MonoBehaviour:
   invaderName: Serratia Marcescens
   description: desc.serratia
   type: bacteria
-  damage: 10
-  speed: 1
-  health: 20
-  score: 15
+  damage: 20
+  speed: 0.5
+  health: 30
+  score: 30
   moveLogicName: linear
   boss: 0
   icon: {fileID: -4860416721044455787, guid: 4e6e4f4d072ee1740a073ad5f1a347d8, type: 3}

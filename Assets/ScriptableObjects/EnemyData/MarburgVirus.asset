@@ -15,10 +15,10 @@ MonoBehaviour:
   invaderName: Marburg Virus
   description: desc.marburg
   type: virus
-  damage: 7.5
-  speed: 2
-  health: 7.5
-  score: 10
+  damage: 15
+  speed: 1
+  health: 15
+  score: 20
   moveLogicName: diagonal
   boss: 0
   icon: {fileID: 8315135875786152526, guid: cc83135ba53ef0244bc794038ba85cf8, type: 3}
