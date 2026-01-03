@@ -156,6 +156,10 @@ public class Enemy : MonoBehaviour
         {
             damage *= 0.5f;
         }
+        else if (disableResist)
+        {
+            damage *= 1.5f;
+        }
         health -= damage;
         shakeSystem.Shake(damage);
         if (health <= 0)
@@ -183,7 +187,7 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 7 && player != null)
+        if (collision.gameObject.layer == 7 && player != null && !killed)
         {
             player.TakeDamage(damage);
             if (data.boss) manager.BossKilled(0);
