@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] ParticleSystem cytokineEm;
     ShakeSystem shakeSystem;
     bool killed = false;
+    AudioSource hitSound;
 
     void Start()
     {
@@ -162,6 +163,7 @@ public class Enemy : MonoBehaviour
         }
         health -= damage;
         shakeSystem.Shake(damage);
+        hitSound.Play();
         if (health <= 0)
         {
             if (!killed)

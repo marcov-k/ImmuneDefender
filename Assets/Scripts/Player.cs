@@ -24,11 +24,13 @@ public class Player : MonoBehaviour
     InputActions inputs;
     Animator animator;
     ShakeSystem shakeSystem;
+    AudioSource hitSound;
 
     void Awake()
     {
         inputs = new();
         animator = GetComponent<Animator>();
+        hitSound = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -154,6 +156,7 @@ public class Player : MonoBehaviour
         health -= damage;
         shakeSystem.Shake(damage);
         healthBar.UpdateHealth(health);
+        hitSound.Play();
         if (health <= 0)
         {
             manager.PlayerKilled();
