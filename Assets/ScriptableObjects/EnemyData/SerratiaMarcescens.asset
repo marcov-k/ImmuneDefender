@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: SerratiaMarcescens
   m_EditorClassIdentifier: 
   invaderName: Serratia Marcescens
-  description: desc.serratia
+  description: A bacteria which can cause various infections throughout the body.
+    Said infections range from respiratory issues such as pneumonia to eye and wound
+    infections. Although rather rare, it can spread relatively quickly in hospitals.
   type: bacteria
   damage: 20
   speed: 0.5

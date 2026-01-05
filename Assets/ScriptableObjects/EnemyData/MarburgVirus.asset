@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: MarburgVirus
   m_EditorClassIdentifier: 
   invaderName: Marburg Virus
-  description: desc.marburg
+  description: A highly dangerous virus most commonly found in sub-Saharan Africa.
+    Its symptoms include muscle pain and nausea and it has a high fatality rate.
+    The virus was first discovered in 1967 and intermittent outbreaks have occurred
+    since then.
   type: virus
   damage: 15
   speed: 1

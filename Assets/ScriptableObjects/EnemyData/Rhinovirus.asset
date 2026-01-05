@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6035b49d0eca89247a1824d507668d04, type: 3}
-  m_Name: Virus5
+  m_Name: Rhinovirus
   m_EditorClassIdentifier: 
-  invaderName: Virus 5
-  description: virus5.desc
+  invaderName: Rhinovirus
+  description: "A virus responsible for causing the mild disease commonly called
+    the \u201Ccommon cold.\u201D Its symptoms include a sore throat, cough, and runny
+    nose. In the vast majority of cases, symptoms will subside on their own within
+    a week."
   type: virus
   damage: 1
   speed: 4

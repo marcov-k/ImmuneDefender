@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Covid
   m_EditorClassIdentifier: 
   invaderName: COVID-19
-  description: desc.covid
+  description: A highly contagious virus causing symptoms similar to those of the
+    flu. It can spread through the air and was responsible for the global pandemic
+    in 2020. Symptoms include a fever, sore throat, and feeling overly tired.
   type: virus
   damage: 5
   speed: 2

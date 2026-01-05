@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6035b49d0eca89247a1824d507668d04, type: 3}
-  m_Name: Virus4
+  m_Name: Norovirus
   m_EditorClassIdentifier: 
-  invaderName: Virus 4
-  description: virus4.desc
+  invaderName: Norovirus
+  description: A highly contagious virus known for causing stomach issues. It can
+    spread through food and its symptoms include severe vomiting and nausea. Although
+    highly unpleasant, symptoms only last for a few days before subsiding.
   type: virus
   damage: 5
   speed: 1
