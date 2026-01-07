@@ -139,5 +139,5 @@ MonoBehaviour:
   musicSpeed: 60
   speedIncrease: 1
   maxMusicSpeed: 120
-  fadeDuration: 0.35
+  fadeDuration: 0.5
   volumeMult: 1

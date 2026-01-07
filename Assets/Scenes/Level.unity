@@ -799,6 +799,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: volumeMult
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: fadeDuration
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: maxMusicSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: speedIncrease
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: tracks.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[0]'
+      value: '[(E3P,0.125,f)(Rest,0.875,f)(D#3P,0.125,f)(Rest,0.875,f)(D3P,0.125,f)(Rest,0.875,f)(Db3P,0.125,f)(Rest,0.875,f)]21[(E3P,0.125,fff)(Rest,0.875,fff)(D#3P,0.125,fff)(Rest,0.875,fff)(D3P,0.125,fff)(Rest,0.875,fff)(Db3P,0.125,fff)(Rest,0.875,fff)]13'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[1]'
+      value: '[(Rest,4,f)]21[(G#3P,0.125,fff)(Rest,0.875,fff)(G3P,0.125,fff)(Rest,0.875,fff)(F#3P,0.125,fff)(Rest,0.875,fff)(F3P,0.125,fff)(Rest,0.875,fff)]13'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[2]'
+      value: '[(Rest,4,f)]21[(D#3P,0.125,fff)(Rest,0.875,fff)(D3P,0.125,fff)(Rest,0.875,fff)(B2P,0.125,fff)(Rest,0.875,fff)(A#2P,0.125,fff)(Rest,0.875,fff)]13'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[3]'
+      value: '[(Rest,4,f)]5[(G4P,1,ppp)(B4P,1,ppp)(Bb4P,1,ppp)(A4P,1,ppp)]1[(G4P,1,pp)(B4P,1,pp)(Bb4P,1,pp)(A4P,1,pp)]1[(G4P,1,p)(B4P,1,p)(Bb4P,1,p)(A4P,1,p)]1[(G4P,1,mp)(B4P,1,mp)(Bb4P,1,mp)(A4P,1,mp)]1[(G4P,1,mf)(B4P,1,mf)(Bb4P,1,mf)(A4P,1,mf)]1[(G4P,1,f)(B4P,1,f)(Bb4P,1,f)(A4P,1,f)]1[(G4P,1,ff)(B4P,1,ff)(Bb4P,1,ff)(A4P,1,ff)]1[(G4P,1,fff)(B4P,1,fff)(Bb4P,1,fff)(A4P,1,fff)]1[(G#4P,0.5,p)]16[(G#4P,0.25,p)]4[(G#4P,3,p)]1[(Rest,4,f)]1[(G4P,4,p)]1[(C4P,4,p)]1[(Eb4P,2,p)]1[(G3P,2,p)]1[(C4P,4,p)]1[(Rest,4,f)]8[(C#5P,4,f)]1[(C#4P,1,f)(E4P,3,f)(G#4P,1,f)(E4P,3,f)(C#4P,0.5,f)(D#4P,0.5,f)(E4P,3,f)(G#4P,0.5,f)(E4P,0.5,f)(F4P,3,f)]1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[4]'
+      value: '[(Rest,4,f)]13[(E4P,0.5,p)]16[(E4P,0.25,p)]4[(E4P,3,p)]1[(Rest,4,f)]13[(E5P,4,f)]1[(Rest,4,f)]4'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[5]'
+      value: '[(Rest,4,f)]13[(E5P,0.5,p)]16[(E5P,0.25,p)]4[(E5P,3,p)]1[(Rest,4,f)]1[(G5P,4,p)]1[(C5P,4,p)]1[(Eb5P,2,p)]1[(G4P,2,p)]1[(C5P,4,p)]1[(Rest,4,f)]8[(G#4P,4,f)]1[(Rest,4,f)]4[(Rest,0.5,f)(G#1P,0.5,f)(Rest,0.5,f)(G1P,0.5,f)(Rest,0.5,f)(F#1P,0.5,f)(Rest,0.5,f)(F1P,0.5,f)]9'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[6]'
+      value: '[(Rest,4,f)]6[(G2P,1,p)(F#2P,1,p)(G2P,1,p)(E2P,1,p)]7[(E3P,0.5,p)]16[(E3P,0.25,p)]4[(E3P,3,p)]1[(Rest,4,p)]1[(G2P,4,p)]1[(C2P,4,p)]1[(Eb2P,2,p)]1[(G1P,2,p)]1[(C2P,4,p)]1[(Rest,4,f)]4'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[7]'
+      value: '[(Rest,4,f)]13[(G#3P,0.5,p)]16[(G#3P,0.25,p)]4[(G#3P,3,p)]1[(Rest,4,p)]1[(G3P,4,p)]1[(C3P,4,p)]1[(Eb3P,2,p)]1[(G2P,2,p)]1[(C3P,4,p)]1[(Rest,4,f)]4[(Rest,0.5,f)(C#2P,0.5,f)(Rest,0.5,f)(C2P,0.5,f)(Rest,0.5,f)(Cb2P,0.5,f)(Rest,0.5,f)(BbP,0.5,f)]9'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

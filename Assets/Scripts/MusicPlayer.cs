@@ -12,20 +12,21 @@ public class MusicPlayer : MonoBehaviour
     readonly Dictionary<string, float> dynDict = new() { { "ppp", 1.0f }, { "pp", 2.5f }, { "p", 4.0f }, { "mp", 5.5f }, { "mf", 7.0f },
         { "f", 8.5f }, { "ff", 10.0f }, { "fff", 11.5f } };
     readonly List<AudioSource> audioSources = new();
-    const string trackRegexString = @"(?:\[\((?<note>(?:[A-Z]#?b?[0-9][A-Z])?),(?<time>[0-9\.]*),(?<dyn>[a-z]*)\)\](?<rep>[0-9]*))+?";
+    const string trackRegexString = @"(?:\[(?<data>(?:\((?:(?:[A-Z]#?b?[0-9][A-Z])|(?:Rest))?,(?:[0-9\.]*),(?:[a-z]*)\))+)\](?<rep>[0-9]*))+?";
     Regex trackRegex;
+    const string noteRegexString = @"(?:\((?<note>(?:(?:[A-Z]#?b?[0-9][A-Z])|(?:Rest))?),(?<time>[0-9\.]*),(?<dyn>[a-z]*)\))+?";
+    Regex noteRegex;
     readonly List<List<Note>> trackNotes = new();
     public float musicSpeed = 90.0f;
     public float speedIncrease = 0.1f;
     public float maxMusicSpeed = 200.0f;
-    public float fadeDuration = 0.25f;
+    public float fadeDuration = 0.45f;
     public float volumeMult = 1.0f;
     float musicVolume = 1.0f;
     float maxVolume;
 
     void Start()
     {
-        trackRegex = new(trackRegexString);
         InitValues();
         UpdateVolume();
         PrepareDicts();
@@ -47,6 +48,8 @@ public class MusicPlayer : MonoBehaviour
     void InitValues()
     {
         maxVolume = dynDict["fff"] * volumeMult;
+        trackRegex = new(trackRegexString);
+        noteRegex = new(noteRegexString);
     }
 
     void PrepareDicts()
@@ -73,42 +76,40 @@ public class MusicPlayer : MonoBehaviour
         for (int i = 0; i < tracks.Count; i++)
         {
             trackNotes.Add(new());
-            var notes = trackRegex.Matches(tracks[i]);
-            foreach (Match note in notes)
+            var trackBlocks = trackRegex.Matches(tracks[i]);
+            foreach (Match trackBlock in trackBlocks)
             {
-                var noteName = note.Groups["note"].Value;
-                var timeS = note.Groups["time"].Value;
-                var dynS = note.Groups["dyn"].Value;
-                var repS = note.Groups["rep"].Value;
-
-                AudioClip clip = null;
-                if (notesDict.TryGetValue(noteName, out var noteClip))
+                string data = trackBlock.Groups["data"].Value;
+                string repsString = trackBlock.Groups["rep"].Value;
+                int reps = (repsString != string.Empty) ? Convert.ToInt32(repsString) : 1;
+                List<Note> repNotes = new();
+                var noteBlocks = noteRegex.Matches(data);
+                foreach (Match noteBlock in noteBlocks)
                 {
-                    clip = noteClip;
+                    string noteName = noteBlock.Groups["note"].Value;
+                    string timeString = noteBlock.Groups["time"].Value;
+                    string dynString = noteBlock.Groups["dyn"].Value;
+
+                    AudioClip noteClip = null;
+                    if (noteName != "Rest" && notesDict.TryGetValue(noteName, out var clip))
+                    {
+                        noteClip = clip;
+                    }
+
+                    float time = (timeString != string.Empty) ? (float)Convert.ToDouble(timeString) : 1.0f;
+
+                    float dyn = 5.5f;
+                    if (dynDict.TryGetValue(dynString, out var dynVal))
+                    {
+                        dyn = dynVal;
+                    }
+
+                    Note note = new() { clip = noteClip, time = time, dyn = dyn };
+                    repNotes.Add(note);
                 }
-
-                var time = 1.0f;
-                if (timeS != string.Empty)
+                for (int j = 0; j < reps; j++)
                 {
-                    time = (float)Convert.ToDouble(timeS);
-                }
-
-                var dyn = dynDict["mp"];
-                if (dynDict.TryGetValue(dynS, out var noteDyn))
-                {
-                    dyn = noteDyn;
-                }
-
-                int rep = 1;
-                if (repS != string.Empty)
-                {
-                    rep = Convert.ToInt32(repS);
-                }
-
-                Note noteObj = new() { clip = clip, time = time, dyn = dyn };
-                for (int j = 0; j < rep; j++)
-                {
-                    trackNotes[i].Add(noteObj);
+                    trackNotes[i].AddRange(repNotes);
                 }
             }
         }
