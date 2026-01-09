@@ -801,7 +801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: musicSpeed
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: volumeMult
@@ -813,7 +813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: maxMusicSpeed
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: speedIncrease
@@ -821,19 +821,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: tracks.Array.size
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: 'tracks.Array.data[0]'
-      value: '[(E3P,0.125,f)(Rest,0.875,f)(D#3P,0.125,f)(Rest,0.875,f)(D3P,0.125,f)(Rest,0.875,f)(Db3P,0.125,f)(Rest,0.875,f)]21[(E3P,0.125,fff)(Rest,0.875,fff)(D#3P,0.125,fff)(Rest,0.875,fff)(D3P,0.125,fff)(Rest,0.875,fff)(Db3P,0.125,fff)(Rest,0.875,fff)]13'
+      value: '[(E3P,0.25,f)(Rest,0.75,f)(D#3P,0.25,f)(Rest,0.75,f)(D3P,0.25,f)(Rest,0.75,f)(Db3P,0.25,f)(Rest,0.75,f)]21[(E3P,0.25,fff)(Rest,0.75,fff)(D#3P,0.25,fff)(Rest,0.75,fff)(D3P,0.25,fff)(Rest,0.75,fff)(Db3P,0.25,fff)(Rest,0.75,fff)]13'
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: 'tracks.Array.data[1]'
-      value: '[(Rest,4,f)]21[(G#3P,0.125,fff)(Rest,0.875,fff)(G3P,0.125,fff)(Rest,0.875,fff)(F#3P,0.125,fff)(Rest,0.875,fff)(F3P,0.125,fff)(Rest,0.875,fff)]13'
+      value: '[(Rest,4,f)]21[(G#3P,0.25,fff)(Rest,0.75,fff)(G3P,0.25,fff)(Rest,0.75,fff)(F#3P,0.25,fff)(Rest,0.75,fff)(F3P,0.25,fff)(Rest,0.75,fff)]13'
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: 'tracks.Array.data[2]'
-      value: '[(Rest,4,f)]21[(D#3P,0.125,fff)(Rest,0.875,fff)(D3P,0.125,fff)(Rest,0.875,fff)(B2P,0.125,fff)(Rest,0.875,fff)(A#2P,0.125,fff)(Rest,0.875,fff)]13'
+      value: '[(Rest,4,f)]21[(D#3P,0.25,fff)(Rest,0.75,fff)(D3P,0.25,fff)(Rest,0.75,fff)(B2P,0.25,fff)(Rest,0.75,fff)(A#2P,0.25,fff)(Rest,0.75,fff)]13'
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: 'tracks.Array.data[3]'
@@ -849,7 +849,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: 'tracks.Array.data[6]'
-      value: '[(Rest,4,f)]6[(G2P,1,p)(F#2P,1,p)(G2P,1,p)(E2P,1,p)]7[(E3P,0.5,p)]16[(E3P,0.25,p)]4[(E3P,3,p)]1[(Rest,4,p)]1[(G2P,4,p)]1[(C2P,4,p)]1[(Eb2P,2,p)]1[(G1P,2,p)]1[(C2P,4,p)]1[(Rest,4,f)]4'
+      value: '[(Rest,4,f)]6[(G2P,1,p)(F#2P,1,p)(G2P,1,p)(E2P,1,p)]7[(E3P,0.5,p)]16[(E3P,0.25,p)]4[(E3P,3,p)]1[(Rest,4,p)]1[(G2P,4,p)]1[(C2P,4,p)]1[(Eb2P,2,p)]1[(G1P,2,p)]1[(C2P,4,p)]1[(Rest,4,f)]4
+        P8:[(Rest,4,f)]13[(G#3P,0.5,p)]16[(G#3P,0.25,p)]4[(G#3P,3,p)]1[(Rest,4,p)]1[(G3P,4,p)]1[(C3P,4,p)]1[(Eb3P,2,p)]1[(G2P,2,p)]1[(C3P,4,p)]1[(Rest,4,f)]4[(Rest,0.5,f)(C#2P,0.5,f)(Rest,0.5,f)(C2P,0.5,f)(Rest,0.5,f)(Cb2P,0.5,f)(Rest,0.5,f)(BbP,0.5,f)]9 '
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: 'tracks.Array.data[7]'

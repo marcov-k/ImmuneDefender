@@ -149,6 +149,7 @@ public class MusicPlayer : MonoBehaviour
                     time += Time.unscaledDeltaTime;
                     timeScale = 60.0f / musicSpeed;
                     noteTime = note.time * timeScale;
+                    source.volume = note.dyn * musicVolume / maxVolume;
                 }
 
                 fadeTime = noteTime * fadeDuration;
