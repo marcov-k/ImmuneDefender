@@ -98,7 +98,7 @@ public class MusicPlayer : MonoBehaviour
 
                     float time = (timeString != string.Empty) ? (float)Convert.ToDouble(timeString) : 1.0f;
 
-                    float dyn = 5.5f;
+                    float dyn = dynDict["mp"];
                     if (dynDict.TryGetValue(dynString, out var dynVal))
                     {
                         dyn = dynVal;
@@ -131,6 +131,7 @@ public class MusicPlayer : MonoBehaviour
         float time;
         float fadeTime;
         float startVol;
+        float noteTimeFactor = 1.0f - fadeDuration;
         while (true)
         {
             source.Stop();
@@ -141,15 +142,25 @@ public class MusicPlayer : MonoBehaviour
                 source.volume = note.dyn * musicVolume / maxVolume;
                 noteTime = note.time * timeScale;
                 source.Play();
-                yield return new WaitForSecondsRealtime(noteTime * (1.0f - fadeDuration));
-                time = 0;
+                time = 0.0f;
+                while (time < noteTime * noteTimeFactor)
+                {
+                    yield return new WaitForEndOfFrame();
+                    time += Time.unscaledDeltaTime;
+                    timeScale = 60.0f / musicSpeed;
+                    noteTime = note.time * timeScale;
+                }
+
                 fadeTime = noteTime * fadeDuration;
                 startVol = source.volume;
+                time = 0.0f;
                 while (time < fadeTime)
                 {
-                    source.volume = Mathf.Lerp(startVol, 0.0f, time / fadeTime);
-                    time += Time.unscaledDeltaTime;
                     yield return new WaitForEndOfFrame();
+                    time += Time.unscaledDeltaTime;
+                    timeScale = 60.0f / musicSpeed;
+                    fadeTime = note.time * timeScale * fadeDuration;
+                    source.volume = Mathf.Lerp(startVol, 0.0f, time / fadeTime);
                 }
                 source.Stop();
             }
