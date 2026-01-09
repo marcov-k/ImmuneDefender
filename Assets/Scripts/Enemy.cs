@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using System.Linq;
+using static SettingsData;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
     public EnemyData data;
@@ -165,6 +168,7 @@ public class Enemy : MonoBehaviour
         }
         health -= damage;
         shakeSystem.Shake(damage);
+        hitSound.volume = masterVolume * effectsVolume * effectsMult;
         hitSound.Play();
         if (health <= 0)
         {
@@ -175,7 +179,9 @@ public class Enemy : MonoBehaviour
                 if (data.boss) manager.BossKilled(score);
                 else manager.EnemyKilled(score);
 
-                gameObject.SetActive(false);
+                StopAllCoroutines();
+                GetComponent<CircleCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().color = new(0, 0, 0, 0);
             }
         }
     }

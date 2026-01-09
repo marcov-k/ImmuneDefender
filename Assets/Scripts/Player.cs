@@ -3,9 +3,11 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using static SettingsData;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 2.0f;
@@ -156,6 +158,7 @@ public class Player : MonoBehaviour
         health -= damage;
         shakeSystem.Shake(damage);
         healthBar.UpdateHealth(health);
+        hitSound.volume = masterVolume * effectsVolume * effectsMult;
         hitSound.Play();
         if (health <= 0)
         {
