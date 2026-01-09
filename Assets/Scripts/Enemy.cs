@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using System.Linq;
 
+[RequireComponent(typeof(AudioSource))]
 public class Enemy : MonoBehaviour
 {
     public EnemyData data;
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour
     void InitValues()
     {
         shakeSystem = gameObject.AddComponent<ShakeSystem>();
+        hitSound = GetComponent<AudioSource>();
         moveDelay = 1.0f / data.speed;
         moveTime = moveDelay / 2.0f;
         moveLogic = MoveCont.GetMoveLogic(data.moveLogicName);
