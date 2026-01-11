@@ -182,6 +182,7 @@ public class Enemy : MonoBehaviour
                 StopAllCoroutines();
                 GetComponent<CircleCollider2D>().enabled = false;
                 GetComponent<SpriteRenderer>().color = new(0, 0, 0, 0);
+                cytokineEm.Stop();
             }
         }
     }
