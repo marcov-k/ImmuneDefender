@@ -17,10 +17,10 @@ MonoBehaviour:
     spread through food and its symptoms include severe vomiting and nausea. Although
     highly unpleasant, symptoms only last for a few days before subsiding.
   type: virus
-  damage: 5
+  damage: 10
   speed: 1
-  health: 5
-  score: 5
+  health: 15
+  score: 15
   moveLogicName: linear
   boss: 0
   icon: {fileID: 3449799363278498546, guid: ef0e18028140ef846976a55be3ae07cc, type: 3}

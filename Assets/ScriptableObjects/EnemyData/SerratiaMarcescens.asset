@@ -17,7 +17,7 @@ MonoBehaviour:
     Said infections range from respiratory issues such as pneumonia to eye and wound
     infections. Although rather rare, it can spread relatively quickly in hospitals.
   type: bacteria
-  damage: 20
+  damage: 15
   speed: 0.5
   health: 30
   score: 30

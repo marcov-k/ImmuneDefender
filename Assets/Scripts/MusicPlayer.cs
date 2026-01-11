@@ -73,38 +73,51 @@ public class MusicPlayer : MonoBehaviour
 
     void PrepareTracks()
     {
+        MatchCollection trackBlocks;
+        string data;
+        string repsString;
+        int reps;
+        List<Note> repNotes = new();
+        MatchCollection noteBlocks;
+        string noteName;
+        string timeString;
+        string dynString;
+        AudioClip noteClip;
+        float time;
+        float dyn;
+        Note note;
         for (int i = 0; i < tracks.Count; i++)
         {
             trackNotes.Add(new());
-            var trackBlocks = trackRegex.Matches(tracks[i]);
+            trackBlocks = trackRegex.Matches(tracks[i]);
             foreach (Match trackBlock in trackBlocks)
             {
-                string data = trackBlock.Groups["data"].Value;
-                string repsString = trackBlock.Groups["rep"].Value;
-                int reps = (repsString != string.Empty) ? Convert.ToInt32(repsString) : 1;
-                List<Note> repNotes = new();
-                var noteBlocks = noteRegex.Matches(data);
+                data = trackBlock.Groups["data"].Value;
+                repsString = trackBlock.Groups["rep"].Value;
+                reps = (repsString != string.Empty) ? Convert.ToInt32(repsString) : 1;
+                repNotes.Clear();
+                noteBlocks = noteRegex.Matches(data);
                 foreach (Match noteBlock in noteBlocks)
                 {
-                    string noteName = noteBlock.Groups["note"].Value;
-                    string timeString = noteBlock.Groups["time"].Value;
-                    string dynString = noteBlock.Groups["dyn"].Value;
+                    noteName = noteBlock.Groups["note"].Value;
+                    timeString = noteBlock.Groups["time"].Value;
+                    dynString = noteBlock.Groups["dyn"].Value;
 
-                    AudioClip noteClip = null;
+                    noteClip = null;
                     if (noteName != "Rest" && notesDict.TryGetValue(noteName, out var clip))
                     {
                         noteClip = clip;
                     }
 
-                    float time = (timeString != string.Empty) ? (float)Convert.ToDouble(timeString) : 1.0f;
+                    time = (timeString != string.Empty) ? (float)Convert.ToDouble(timeString) : 1.0f;
 
-                    float dyn = dynDict["mp"];
+                    dyn = dynDict["mp"];
                     if (dynDict.TryGetValue(dynString, out var dynVal))
                     {
                         dyn = dynVal;
                     }
 
-                    Note note = new() { clip = noteClip, time = time, dyn = dyn };
+                    note = new() { clip = noteClip, time = time, dyn = dyn };
                     repNotes.Add(note);
                 }
                 for (int j = 0; j < reps; j++)

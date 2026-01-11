@@ -19,7 +19,7 @@ MonoBehaviour:
     which the body relies on.
   type: virus
   damage: 30
-  speed: 0.5
+  speed: 0.35
   health: 200
   score: 100
   moveLogicName: combined

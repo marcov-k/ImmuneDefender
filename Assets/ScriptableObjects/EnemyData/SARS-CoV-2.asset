@@ -19,7 +19,7 @@ MonoBehaviour:
     overly tired, although they can range as far as death.
   type: virus
   damage: 30
-  speed: 0.15
+  speed: 0.2
   health: 500
   score: 400
   moveLogicName: combined
