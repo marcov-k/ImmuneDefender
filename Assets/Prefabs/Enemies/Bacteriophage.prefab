@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2334078537273373473}
   - component: {fileID: 5829283826078918608}
   - component: {fileID: 1442011360911494604}
-  - component: {fileID: 7828471331231864237}
+  - component: {fileID: 9052907653926409839}
   m_Layer: 6
-  m_Name: Covid
+  m_Name: Bacteriophage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1272840303, guid: 4eb86a8851939e64d85fdebdc914f47d, type: 3}
+  m_Sprite: {fileID: -723969311, guid: d7d05e599f4ff5d4db48679a12e69d22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bdf181855dfb24984ff5473ab97240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 1a94d829cf452514a8c50d44a255133b, type: 2}
+  data: {fileID: 11400000, guid: 071a9cd8166d61548882d139ae12ee99, type: 2}
   pos:
     x: 0
     y: 0
@@ -184,7 +184,7 @@ Animator:
   m_GameObject: {fileID: 301743323909848525}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 34c79aae6cd8bb24bb34443b8b0bc3bf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 62ae6ea31682b954c87fe450c42c973f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -196,7 +196,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!82 &7828471331231864237
+--- !u!82 &9052907653926409839
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

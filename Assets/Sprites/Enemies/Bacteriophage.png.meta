@@ -1,43 +1,31 @@
 fileFormatVersion: 2
-guid: 4eb86a8851939e64d85fdebdc914f47d
+guid: d7d05e599f4ff5d4db48679a12e69d22
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7115176662952475992
-    second: Covid_0
+      213: -5861751279329815507
+    second: Bacteriophage_0
   - first:
-      213: -7216057646671323405
-    second: Covid_1
+      213: -9157523880399376823
+    second: Bacteriophage_1
   - first:
-      213: -908892884891594894
-    second: Covid_2
+      213: -4249753180063753233
+    second: Bacteriophage_2
   - first:
-      213: -7430068652777915094
-    second: Covid_3
+      213: -1045688221399246219
+    second: Bacteriophage_3
   - first:
-      213: -7043383895932499090
-    second: Covid_4
+      213: -3479316618624736768
+    second: Bacteriophage_4
   - first:
-      213: 5984348348043405399
-    second: Covid_5
+      213: -2248074082080828037
+    second: Bacteriophage_5
   - first:
-      213: 4035588666694431205
-    second: Covid_6
+      213: -3363867620277652489
+    second: Bacteriophage_6
   - first:
-      213: -4959391675475210690
-    second: Covid_7
-  - first:
-      213: -6505521992299766171
-    second: Covid_8
-  - first:
-      213: -3526526909021760783
-    second: Covid_9
-  - first:
-      213: -896634277594520472
-    second: Covid_10
-  - first:
-      213: 8733491751989550442
-    second: Covid_11
+      213: 3275147291376047860
+    second: Bacteriophage_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -146,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Covid_0
+      name: Bacteriophage_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 1664
-        width: 320
-        height: 320
+        x: 320
+        y: 4096
+        width: 1088
+        height: 2048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4c2daa213470504cb9b1978387fe08a
-      internalID: -1272840303
+      spriteID: deaaf747d34bd20479ba954c676dc2bf
+      internalID: -723969311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid_1
+      name: Bacteriophage_1
       rect:
         serializedVersion: 2
-        x: 576
-        y: 1664
-        width: 320
-        height: 320
+        x: 2368
+        y: 4096
+        width: 1088
+        height: 2048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 206f8f09602a09f438cd7533e917839a
-      internalID: -1080608451
+      spriteID: 78181a2e3418c184bbdfd7758b2ed229
+      internalID: 726527647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid_2
+      name: Bacteriophage_2
       rect:
         serializedVersion: 2
-        x: 1088
-        y: 1664
-        width: 320
-        height: 320
+        x: 4479
+        y: 4096
+        width: 1025
+        height: 2048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69be295e91320fd40aee1f893409b092
-      internalID: 333395068
+      spriteID: 1150592c77fccd74ea5870b664cf3e08
+      internalID: -1311939238
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid_3
+      name: Bacteriophage_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 1152
-        width: 320
-        height: 320
+        x: 383
+        y: 2113
+        width: 1025
+        height: 1983
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7305d5d1c4474e34ea04462b0f4d8268
-      internalID: -161684351
+      spriteID: eec101998038b14419821c4384cb4adc
+      internalID: -438635549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid_4
+      name: Bacteriophage_4
       rect:
         serializedVersion: 2
-        x: 544
-        y: 1152
-        width: 352
-        height: 352
+        x: 2432
+        y: 2240
+        width: 960
+        height: 1856
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52e0dd26ea9e53846afc80c83a50cdad
-      internalID: -1192412606
+      spriteID: 69e177026123f2644b3d16514187c050
+      internalID: 1096134584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid_5
+      name: Bacteriophage_5
       rect:
         serializedVersion: 2
-        x: 1056
-        y: 1152
-        width: 384
-        height: 352
+        x: 4480
+        y: 2240
+        width: 961
+        height: 1856
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,20 +259,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47aac5012f615c34fbb05685801e7c0a
-      internalID: -1341918555
+      spriteID: 52075eb63d9d06747bad8dcb35f25bfa
+      internalID: 1711457354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid_6
+      name: Bacteriophage_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 608
-        width: 416
-        height: 384
+        x: 384
+        y: 64
+        width: 1024
+        height: 1984
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,20 +281,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d502868aff0a76241a0b03c694161504
-      internalID: 1509181226
+      spriteID: 3d6f4ef5dabf310498b481da0d3761b9
+      internalID: -1291349041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid_7
+      name: Bacteriophage_7
       rect:
         serializedVersion: 2
-        x: 544
-        y: 608
-        width: 416
-        height: 384
+        x: 2432
+        y: 0
+        width: 1024
+        height: 2048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,20 +303,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b758c382c22e45347a414afd77e18eac
-      internalID: 205109863
+      spriteID: 65b25e9d23979be478eeec38d9dd29fc
+      internalID: -714295646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid_8
+      name: Bacteriophage_8
       rect:
         serializedVersion: 2
-        x: 1056
-        y: 608
-        width: 416
-        height: 384
+        x: 4415
+        y: 0
+        width: 1090
+        height: 2048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,74 +325,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f19336afc861a5e4c8bec5c5ef0d4cf4
-      internalID: -1797357843
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Covid_9
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 416
-        height: 384
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1a0d8d2af227f54eaa3e76840193967
-      internalID: -446187916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Covid_10
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 128
-        width: 384
-        height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 477282d27c8f2584b8190a82f1077e61
-      internalID: 1549602115
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Covid_11
-      rect:
-        serializedVersion: 2
-        x: 1056
-        y: 128
-        width: 352
-        height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 539940bf7e3140c45a0c0a8b0848c3a6
-      internalID: 2057631039
+      spriteID: 3b40d116854623f408b5078d66de466d
+      internalID: -981381433
       vertices: []
       indices: 
       edges: []
@@ -413,7 +335,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 50c2ebb5747fdc34cb44d53a6d92a3ca
+    spriteID: 716761abfb86a1d4b9bd76f8d9c75bbe
     internalID: 0
     vertices: []
     indices: 
@@ -423,18 +345,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Covid_0: -1272840303
-      Covid_1: -1080608451
-      Covid_10: 1549602115
-      Covid_11: 2057631039
-      Covid_2: 333395068
-      Covid_3: -161684351
-      Covid_4: -1192412606
-      Covid_5: -1341918555
-      Covid_6: 1509181226
-      Covid_7: 205109863
-      Covid_8: -1797357843
-      Covid_9: -446187916
+      Bacteriophage_0: -723969311
+      Bacteriophage_1: 726527647
+      Bacteriophage_2: -1311939238
+      Bacteriophage_3: -438635549
+      Bacteriophage_4: 1096134584
+      Bacteriophage_5: 1711457354
+      Bacteriophage_6: -1291349041
+      Bacteriophage_7: -714295646
+      Bacteriophage_8: -981381433
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

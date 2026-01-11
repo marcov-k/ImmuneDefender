@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   defencesUnlocked: 4
+  newDefences:
+  - {fileID: 11400000, guid: b59f3867e18cba844aa600e6fa13d408, type: 2}
+  newEnemies:
+  - {fileID: 11400000, guid: cce8afcf681d0f349bb802a77ff85156, type: 2}
+  - {fileID: 11400000, guid: 071a9cd8166d61548882d139ae12ee99, type: 2}
