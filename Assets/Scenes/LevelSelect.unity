@@ -1172,6 +1172,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: musicSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: fadeDuration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: maxMusicSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: speedIncrease
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: tracks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[0]'
+      value: '[(D4P,1,mf)(Eb4P,1,mf)(D4P,1,mf)(C#4P,1,mf)]12'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[1]'
+      value: '[(Rest,4,mf)]4[(B2P,1,mp)(AbP,1,mf)]16'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[2]'
+      value: '[(Rest,4,mf)]8[(D5P,4,mp)]4'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'tracks.Array.data[3]'
+      value: '[(Rest,4,mf)]8[(F5P,4,mp)]4'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
