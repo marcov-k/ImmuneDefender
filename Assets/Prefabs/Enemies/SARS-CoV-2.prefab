@@ -146,7 +146,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 2
+  m_Radius: 9.5
 --- !u!50 &5829283826078918608
 Rigidbody2D:
   serializedVersion: 5
@@ -301,6 +301,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4831233735935714835}
     m_Modifications:
+    - target: {fileID: 866111903308774738, guid: ff465389b64ef644baa7a63d5627f3d9, type: 3}
+      propertyPath: lengthInSec
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 866111903308774738, guid: ff465389b64ef644baa7a63d5627f3d9, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 866111903308774738, guid: ff465389b64ef644baa7a63d5627f3d9, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5630500442619643979, guid: ff465389b64ef644baa7a63d5627f3d9, type: 3}
       propertyPath: m_Name
       value: EnemyCytokineEm
