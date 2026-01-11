@@ -18,9 +18,9 @@ MonoBehaviour:
     highly unpleasant, symptoms only last for a few days before subsiding.
   type: virus
   damage: 10
-  speed: 1
-  health: 15
-  score: 15
+  speed: 1.5
+  health: 45
+  score: 40
   moveLogicName: linear
   boss: 0
   icon: {fileID: 3449799363278498546, guid: ef0e18028140ef846976a55be3ae07cc, type: 3}

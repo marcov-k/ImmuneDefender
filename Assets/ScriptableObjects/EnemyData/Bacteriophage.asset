@@ -18,10 +18,10 @@ MonoBehaviour:
     While some may kill harmful bacteria, this one is intent on destroying those
     which the body relies on.
   type: virus
-  damage: 30
+  damage: 75
   speed: 0.35
-  health: 200
+  health: 150
   score: 100
-  moveLogicName: combined
+  moveLogicName: linear
   boss: 1
   icon: {fileID: -723969311, guid: d7d05e599f4ff5d4db48679a12e69d22, type: 3}

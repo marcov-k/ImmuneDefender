@@ -18,10 +18,10 @@ MonoBehaviour:
     in 2020 known as COVID-19. Symptoms include a fever, sore throat, and feeling
     overly tired, although they can range as far as death.
   type: virus
-  damage: 30
-  speed: 0.2
+  damage: 90
+  speed: 0.3
   health: 500
   score: 400
-  moveLogicName: combined
+  moveLogicName: diagonal
   boss: 1
   icon: {fileID: -931081922, guid: ed4c39d80b5e83b4f98a0c7e62791565, type: 3}
