@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invaderName: Influenza
   description: Also known as the flu, influenza is a contagious disease affecting
-    the nose, throat, and lungs. It causes several symptoms including a fever, a
-    cough or fatigue. Most people affected by it usually recover in a few days but
-    people who are more susceptible such as infants and the elderly can have serious
-    symptoms.
+    the nose, throat, and lungs. It causes several symptoms including a fever, and
+    cough. Recovery is usually a few days but people who are more susceptible, such
+    as infants and the elderly, can have severe symptoms.
   type: virus
   damage: 5
   speed: 2
