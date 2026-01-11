@@ -1364,7 +1364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: fadeDuration
-      value: 0.15
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: maxMusicSpeed

@@ -16,7 +16,7 @@ MonoBehaviour:
   description: B Cells produce antibodies in order to counter present invaders. When
     an invader is detected, they mass produce these proteins in an area in order
     to repel the attack, damaging any diseases around them.
-  damage: 5
+  damage: 7.5
   speed: 5
   piercing: 0
   area: 1
