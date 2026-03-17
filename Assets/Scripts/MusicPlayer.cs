@@ -1,38 +1,23 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System;
 using System.Collections;
+using UnityEngine.Audio;
 
+[RequireComponent(typeof(AudioSource))]
 public class MusicPlayer : MonoBehaviour
 {
-    [SerializeField] List<string> tracks = new();
-    [SerializeField] List<AudioClip> clips = new();
-    readonly Dictionary<string, AudioClip> notesDict = new();
-    readonly Dictionary<string, float> dynDict = new() { { "ppp", 1.0f }, { "pp", 2.5f }, { "p", 4.0f }, { "mp", 5.5f }, { "mf", 7.0f },
-        { "f", 8.5f }, { "ff", 10.0f }, { "fff", 11.5f } };
-    readonly List<AudioSource> audioSources = new();
-    const string trackRegexString = @"(?:\[(?<data>(?:\((?:(?:[A-Z]#?b?[0-9][A-Z])|(?:Rest))?,(?:[0-9\.]*),(?:[a-z]*)\))+)\](?<rep>[0-9]*))+?";
-    Regex trackRegex;
-    const string noteRegexString = @"(?:\((?<note>(?:(?:[A-Z]#?b?[0-9][A-Z])|(?:Rest))?),(?<time>[0-9\.]*),(?<dyn>[a-z]*)\))+?";
-    Regex noteRegex;
-    readonly List<List<Note>> trackNotes = new();
-    public float musicSpeed = 90.0f;
-    public float speedIncrease = 0.1f;
-    public float maxMusicSpeed = 200.0f;
-    public float fadeDuration = 0.45f;
-    public float volumeMult = 1.0f;
+    [Range(0.0f, 2.0f)] public float musicSpeed = 1.0f;
+    public float speedIncrease = 0.01f;
+    [Range(0.0f, 2.0f)] public float maxMusicSpeed = 2.0f;
+    [Range(0.0f, 1.0f)] public float volumeMult = 1.0f;
+    AudioSource source;
+    [SerializeField] AudioMixer mixer;
     float musicVolume = 1.0f;
-    float maxVolume;
 
     void Start()
     {
-        InitValues();
+        source = GetComponent<AudioSource>();
         UpdateVolume();
-        PrepareDicts();
-        AddAudioSources();
-        PrepareTracks();
-        StartPlayers();
+        StartCoroutine(SpeedIncrease());
     }
 
     void Update()
@@ -45,156 +30,15 @@ public class MusicPlayer : MonoBehaviour
         musicVolume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
     }
 
-    void InitValues()
-    {
-        maxVolume = dynDict["fff"] * volumeMult;
-        trackRegex = new(trackRegexString);
-        noteRegex = new(noteRegexString);
-    }
-
-    void PrepareDicts()
-    {
-        foreach (var clip in clips)
-        {
-            notesDict.Add(clip.name, clip);
-        }
-    }
-
-    void AddAudioSources()
-    {
-        for (int i = 0; i < tracks.Count; i++)
-        {
-            audioSources.Add(gameObject.AddComponent<AudioSource>());
-            audioSources[i].playOnAwake = false;
-            audioSources[i].ignoreListenerPause = true;
-            audioSources[i].Stop();
-        }
-    }
-
-    void PrepareTracks()
-    {
-        MatchCollection trackBlocks;
-        string data;
-        string repsString;
-        int reps;
-        List<Note> repNotes = new();
-        MatchCollection noteBlocks;
-        string noteName;
-        string timeString;
-        string dynString;
-        AudioClip noteClip;
-        float time;
-        float dyn;
-        Note note;
-        for (int i = 0; i < tracks.Count; i++)
-        {
-            trackNotes.Add(new());
-            trackBlocks = trackRegex.Matches(tracks[i]);
-            foreach (Match trackBlock in trackBlocks)
-            {
-                data = trackBlock.Groups["data"].Value;
-                repsString = trackBlock.Groups["rep"].Value;
-                reps = (repsString != string.Empty) ? Convert.ToInt32(repsString) : 1;
-                repNotes.Clear();
-                noteBlocks = noteRegex.Matches(data);
-                foreach (Match noteBlock in noteBlocks)
-                {
-                    noteName = noteBlock.Groups["note"].Value;
-                    timeString = noteBlock.Groups["time"].Value;
-                    dynString = noteBlock.Groups["dyn"].Value;
-
-                    noteClip = null;
-                    if (noteName != "Rest" && notesDict.TryGetValue(noteName, out var clip))
-                    {
-                        noteClip = clip;
-                    }
-
-                    time = (timeString != string.Empty) ? (float)Convert.ToDouble(timeString) : 1.0f;
-
-                    dyn = dynDict["mp"];
-                    if (dynDict.TryGetValue(dynString, out var dynVal))
-                    {
-                        dyn = dynVal;
-                    }
-
-                    note = new() { clip = noteClip, time = time, dyn = dyn };
-                    repNotes.Add(note);
-                }
-                for (int j = 0; j < reps; j++)
-                {
-                    trackNotes[i].AddRange(repNotes);
-                }
-            }
-        }
-    }
-
-    void StartPlayers()
-    {
-        StartCoroutine(SpeedIncrease());
-        for (int i = 0; i < trackNotes.Count; i++)
-        {
-            StartCoroutine(TrackPlayer(trackNotes[i], audioSources[i]));
-        }
-    }
-
-    IEnumerator TrackPlayer(List<Note> track, AudioSource source)
-    {
-        float timeScale;
-        float noteTime;
-        float time;
-        float fadeTime;
-        float startVol;
-        float noteTimeFactor = 1.0f - fadeDuration;
-        while (true)
-        {
-            source.Stop();
-            foreach (var note in track)
-            {
-                timeScale = 60.0f / musicSpeed;
-                source.clip = note.clip;
-                source.volume = note.dyn * musicVolume / maxVolume;
-                noteTime = note.time * timeScale;
-                source.Play();
-                time = 0.0f;
-                while (time < noteTime * noteTimeFactor)
-                {
-                    yield return new WaitForEndOfFrame();
-                    time += Time.unscaledDeltaTime;
-                    timeScale = 60.0f / musicSpeed;
-                    noteTime = note.time * timeScale;
-                    source.volume = note.dyn * musicVolume / maxVolume;
-                }
-
-                fadeTime = noteTime * fadeDuration;
-                startVol = source.volume;
-                time = 0.0f;
-                while (time < fadeTime)
-                {
-                    yield return new WaitForEndOfFrame();
-                    time += Time.unscaledDeltaTime;
-                    timeScale = 60.0f / musicSpeed;
-                    fadeTime = note.time * timeScale * fadeDuration;
-                    source.volume = Mathf.Lerp(startVol, 0.0f, time / fadeTime);
-                }
-                source.Stop();
-            }
-        }
-    }
-
     IEnumerator SpeedIncrease()
     {
-        WaitForSeconds delay = new(1.0f);
+        WaitForSeconds delay = new(0.25f);
         while (musicSpeed < maxMusicSpeed)
         {
             yield return delay;
             musicSpeed = Mathf.Min(musicSpeed + speedIncrease, maxMusicSpeed);
+            source.pitch = musicSpeed;
+            mixer.SetFloat("pitch", 1.0f / musicSpeed);
         }
-    }
-
-    private struct Note
-    {
-        public AudioClip clip;
-        public float time;
-        public float dyn;
     }
 }

@@ -801,7 +801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: musicSpeed
-      value: 60
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: volumeMult
@@ -813,11 +813,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: maxMusicSpeed
-      value: 90
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: speedIncrease
-      value: 0.35
+      value: 0.00416
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: tracks.Array.size
@@ -856,6 +856,14 @@ PrefabInstance:
       propertyPath: 'tracks.Array.data[7]'
       value: '[(Rest,4,f)]13[(G#3P,0.5,p)]16[(G#3P,0.25,p)]4[(G#3P,3,p)]1[(Rest,4,p)]1[(G3P,4,p)]1[(C3P,4,p)]1[(Eb3P,2,p)]1[(G2P,2,p)]1[(C3P,4,p)]1[(Rest,4,f)]4[(Rest,0.5,f)(C#2P,0.5,f)(Rest,0.5,f)(C2P,0.5,f)(Rest,0.5,f)(Cb2P,0.5,f)(Rest,0.5,f)(BbP,0.5,f)]9'
       objectReference: {fileID: 0}
+    - target: {fileID: 7569095679582824935, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 947bef52f5376424a8bb77fd828e2946, type: 3}
+    - target: {fileID: 7569095679582824935, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 947bef52f5376424a8bb77fd828e2946, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
