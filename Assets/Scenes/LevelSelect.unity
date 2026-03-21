@@ -1208,6 +1208,14 @@ PrefabInstance:
       propertyPath: 'tracks.Array.data[3]'
       value: '[(Rest,4,mf)]8[(F5P,4,mp)]4'
       objectReference: {fileID: 0}
+    - target: {fileID: 7569095679582824935, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 450afb95e99fdd84d95c374eaf633305, type: 3}
+    - target: {fileID: 7569095679582824935, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 450afb95e99fdd84d95c374eaf633305, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

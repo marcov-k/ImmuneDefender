@@ -11,7 +11,6 @@ public class MusicPlayer : MonoBehaviour
     [Range(0.0f, 1.0f)] public float volumeMult = 1.0f;
     AudioSource source;
     [SerializeField] AudioMixer mixer;
-    float musicVolume = 1.0f;
 
     void Start()
     {
@@ -27,7 +26,7 @@ public class MusicPlayer : MonoBehaviour
 
     void UpdateVolume()
     {
-        musicVolume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
+        source.volume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
     }
 
     IEnumerator SpeedIncrease()
