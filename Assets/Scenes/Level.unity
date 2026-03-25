@@ -856,14 +856,102 @@ PrefabInstance:
       propertyPath: 'tracks.Array.data[7]'
       value: '[(Rest,4,f)]13[(G#3P,0.5,p)]16[(G#3P,0.25,p)]4[(G#3P,3,p)]1[(Rest,4,p)]1[(G3P,4,p)]1[(C3P,4,p)]1[(Eb3P,2,p)]1[(G2P,2,p)]1[(C3P,4,p)]1[(Rest,4,f)]4[(Rest,0.5,f)(C#2P,0.5,f)(Rest,0.5,f)(C2P,0.5,f)(Rest,0.5,f)(Cb2P,0.5,f)(Rest,0.5,f)(BbP,0.5,f)]9'
       objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: speedClips.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ac8b2e2c9edd44942bca972a8e1554e8, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f4c09ac142cd8a24bbb9902787e66e04, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: af62525420c17924596beba747374827, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a832b5686bcc55346a61a65bba8df084, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a605bcef80d045f478887b9fa5a06b1d, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5404aea37425b424b9be2d68bbcb6be3, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d390519977e2f294285fbf6146556c0e, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b490494b70a16614496216d25bba507e, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[8]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f83c2a9569e4af4db0f6bd6cc211612, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[9]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b9cb08b78eab55a4a9cdf1c836f36c03, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[10]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 75d590319a7218846b7d0a2d8f643400, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[11]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f102edc6822721444bb3ff5a7daa4dbe, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[12]'
+      value: 
+      objectReference: {fileID: 8300000, guid: de96ae41d57eec443a68eb88c5ba4041, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[13]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 148235cb67caeb54598f3387121d134c, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[14]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b6af48109a6e9c74383b2a98821a225c, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[15]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e0a30fbd62a26d543a06b50cfdeb6d64, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[16]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 162b281550d88fe4cba3f1177ff7ff1b, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[17]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bf7ca847f944ce4fbe6356ae9e851e6, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[18]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b6cfd850cde15b94b9e27f21451b2bae, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[19]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 493bf6436b8216e478bf61c78c315b26, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[20]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bc25e05ce97ea694a838b7283b366b4f, type: 3}
     - target: {fileID: 7569095679582824935, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 947bef52f5376424a8bb77fd828e2946, type: 3}
+      objectReference: {fileID: 8300000, guid: ac8b2e2c9edd44942bca972a8e1554e8, type: 3}
     - target: {fileID: 7569095679582824935, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 947bef52f5376424a8bb77fd828e2946, type: 3}
+      objectReference: {fileID: 8300000, guid: ac8b2e2c9edd44942bca972a8e1554e8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

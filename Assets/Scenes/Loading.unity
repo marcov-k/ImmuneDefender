@@ -1375,6 +1375,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: totalIncreaseTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: tracks.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1386,6 +1390,14 @@ PrefabInstance:
       propertyPath: 'tracks.Array.data[1]'
       value: '[(Rest,3,mf)]24[(G4P,0.5,mf)]1[(Rest,2.5,mf)]1[(Ab4P,0.5,mf)]1[(Rest,2.5,mf)]1[(Bb4P,0.5,mf)]1[(Rest,2.5,mf)]1[(C5P,0.5,mf)]1[(Rest,2.5,mf)]1[(Rest,3,mf)]3'
       objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: speedClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: 'speedClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6260a8f710638c14d96f75883407d7b0, type: 3}
     - target: {fileID: 7569095679582824935, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: m_Resource
       value: 

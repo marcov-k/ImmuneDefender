@@ -1,20 +1,17 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.Audio;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(AudioSource))]
 public class MusicPlayer : MonoBehaviour
 {
-    [Range(0.0f, 2.0f)] public float musicSpeed = 1.0f;
-    public float speedIncrease = 0.01f;
-    [Range(0.0f, 2.0f)] public float maxMusicSpeed = 2.0f;
+    public float totalIncreaseTime = 60.0f;
     [Range(0.0f, 1.0f)] public float volumeMult = 1.0f;
-    AudioSource source;
-    [SerializeField] AudioMixer mixer;
+    [SerializeField] AudioSource[] sources = new AudioSource[2];
+    [SerializeField] List<AudioClip> speedClips = new();
 
     void Start()
     {
-        source = GetComponent<AudioSource>();
         UpdateVolume();
         StartCoroutine(SpeedIncrease());
     }
@@ -26,18 +23,41 @@ public class MusicPlayer : MonoBehaviour
 
     void UpdateVolume()
     {
-        source.volume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
+        sources[0].volume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
+        sources[1].volume = SettingsData.masterVolume * SettingsData.musicVolume * volumeMult;
     }
 
     IEnumerator SpeedIncrease()
     {
-        WaitForSeconds delay = new(0.25f);
-        while (musicSpeed < maxMusicSpeed)
+        sources[0].clip = speedClips[0];
+        sources[0].Play();
+        if (speedClips.Count > 1)
         {
-            yield return delay;
-            musicSpeed = Mathf.Min(musicSpeed + speedIncrease, maxMusicSpeed);
-            source.pitch = musicSpeed;
-            mixer.SetFloat("pitch", 1.0f / musicSpeed);
+            int currentSource = 0;
+            int nextSource = 1;
+            float delayTime = totalIncreaseTime / (speedClips.Count - 1.0f);
+            var delay = new WaitForSeconds(delayTime);
+            float speedIncrease = 1.0f / (speedClips.Count - 1.0f);
+            float speedMult = 1.0f + speedIncrease;
+            float playingTime = 0.0f + delayTime;
+            sources[nextSource].clip = speedClips[1];
+            sources[nextSource].time = playingTime * (1.0f / speedMult);
+            for (int i = 1; i < speedClips.Count; i++)
+            {
+                yield return delay;
+
+                (nextSource, currentSource) = (currentSource, nextSource);
+                sources[currentSource].Play();
+
+                playingTime += delayTime;
+                speedMult += speedIncrease;
+
+                if (i < speedClips.Count - 1)
+                {
+                    sources[nextSource].clip = speedClips[i + 1];
+                    sources[nextSource].time = playingTime * (1.0f / speedMult);
+                }
+            }
         }
     }
 }
