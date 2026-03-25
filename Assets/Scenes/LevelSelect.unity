@@ -1168,6 +1168,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2603280225074803228, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 450afb95e99fdd84d95c374eaf633305, type: 3}
+    - target: {fileID: 2603280225074803228, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 450afb95e99fdd84d95c374eaf633305, type: 3}
     - target: {fileID: 5632055275592017346, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: m_Name
       value: MusicPlayer

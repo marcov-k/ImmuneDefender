@@ -800,6 +800,10 @@ PrefabInstance:
       value: MusicPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: speedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bc25e05ce97ea694a838b7283b366b4f, type: 3}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: musicSpeed
       value: 1
       objectReference: {fileID: 0}
@@ -818,6 +822,10 @@ PrefabInstance:
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: speedIncrease
       value: 0.00416
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
+      propertyPath: increasesSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7339698410882931037, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: tracks.Array.size
@@ -947,11 +955,11 @@ PrefabInstance:
     - target: {fileID: 7569095679582824935, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: ac8b2e2c9edd44942bca972a8e1554e8, type: 3}
+      objectReference: {fileID: 8300000, guid: 0d31a84a496c3394ba4689357f96b617, type: 3}
     - target: {fileID: 7569095679582824935, guid: 060c37477a11b804ba33b00152bdfcc3, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: ac8b2e2c9edd44942bca972a8e1554e8, type: 3}
+      objectReference: {fileID: 8300000, guid: 0d31a84a496c3394ba4689357f96b617, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
